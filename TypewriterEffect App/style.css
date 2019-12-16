@@ -30,7 +30,12 @@ h2 {
     color: #aaaaaa;
 }
 
-@media(min-width: 200px) {
+/* Cursor Styling */
+.text-type > .txt {
+   border-right: 0.2rem solid #777777; 
+}
+
+@media(min-width: 1200px) {
     h1 {
         font-size: 5rem;
     }
