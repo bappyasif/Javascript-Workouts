@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link 
+    rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous"
+    >
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Geo Code Example App</title>
+</head>
+<body>
+    <div id="formatted-address">
+
+    </div>
+
+    <script>
+        // Call geoCode
+        geoCode();
+
+        function geoCode() {
+            var location = "38 Main St Albany NY";
+            axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+                params:{
+                    address:location,
+                    key:'AIzaSyB03XipjyL9mlysBNABy9KviOrIin-mYvo'
+                }
+            }).then(function(response) {
+                // Full Response Console Log
+                console.log(response);
+                // Formated Addrerss
+                //console.log(response.data.results[0].formatted_adderess);
+                var formattedAddress = response.data.results[0].formatted_adderess;
+                var formattedAddressOutput = `
+                  <ul class="list-group">
+                        <li class="list-group-item">${formattedAddress}</li>
+                  </ul>
+                `;
+
+                // Output To App Screen
+                document.getElementById("formatted-address").innerHTML = formattedAddressOutput;
+
+            }).catch(function(error) {
+                console.log(error);
+            });
+        }
+    </script>
+</body>
+</html>
