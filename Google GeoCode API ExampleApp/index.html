@@ -14,16 +14,32 @@
     <title>Geo Code Example App</title>
 </head>
 <body>
-    <div id="formatted-address">
-
+    <div class="container">
+        <h2 id="teext-center">Enter Location</h2>
+        <form id="location-form">
+            <input type="text" id="loication-input" class="form-control form-control-lg">
+            <br>
+            <button type="submit" class="btn btn-primary btn-block"></button>
+        </form>
+        <div class="card-block" id="formatted-address"></div>
+        <div class="card-block" id="address-components"></div>
+        <div class="card-block" id="geometry"></div>
     </div>
 
     <script>
         // Call geoCode
-        geoCode();
+        //geoCode();
 
-        function geoCode() {
-            var location = "38 Main St Albany NY";
+        // Rerouting geoCode To Form
+        var locationForm = document.getElementById("location-form");
+        // Listen To Submit Event
+        locationForm.addEventListener("submit", geoCode);
+
+        function geoCode(event) {
+            event.preventDefault();
+
+            //var location = "38 Main St Albany NY";
+            var location = document.getElementById("location-input").value;
             axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
                 params:{
                     address:location,
@@ -41,8 +57,31 @@
                   </ul>
                 `;
 
+                // Address Components
+                var addressComponenets = response.data.results[0].address_componenets;
+                var addressComponentsOutput = "</ul class='list-group'>";
+                for(var i=0; i<addressComponenets.length; i++) {
+                    addressComponentsOutput += `
+                        <li class="list-group-item"><strong>${addressComponenets[i].types[0]}
+                        </strong>: ${addressComponenets[i].long_name}</li>
+                    `;
+                }
+                addressComponentsOutput += "</ul>";
+
+                // Geometry Components
+                var latitude = response.data.results[0].geometry.location.lat;
+                var longitude = response.data.results[0].geometry.location.lng;
+                var geometryOutput = `
+                  <ul class="list-group">
+                        <li class="list-group-item"><strong>Latitude</strong> : ${latitude}</li>
+                        <li class="list-group-item"><strong>Longitude</strong> : ${longitude}</li>
+                  </ul>
+                `;
+
                 // Output To App Screen
                 document.getElementById("formatted-address").innerHTML = formattedAddressOutput;
+                document.getElementById("address-components").innerHTML = addressComponentsOutput;
+                document.getElementById("geometry").innerHTML = geometryOutput;
 
             }).catch(function(error) {
                 console.log(error);
