@@ -27,6 +27,18 @@
             }
             // New Map
             var map = new google.maps.Map(document.getElementById("map"), options);
+            
+            // Non Persistent Marker Selection
+            // Listen For Map ClickEvent
+            google.maps.event.addListener(map, "click",
+            function(event) {
+                // Add Marker On Click
+                addMarker({coordinates:event.latLng});
+            });
+
+            /*
+            // Persistent Markers
+            // Simplistic Way
 
             // Add Marker
             var marker = new google.maps.Marker({
@@ -44,6 +56,126 @@
             marker.addListener("click", function(){
                 infoWindow.open(map, marker);
             });
+
+            // Function Oriented
+            // Calling addMarker With Coordiantes
+            addMarker({lat:23.777176, lng:90.399452});
+            addMarker({lat:-27.112722, lng:-109.349686});
+            addMarker({lat:40.712776, lng:-74.005974});
+            addMarker({lat:26.186110, lng:-81.703506});
+
+            // Add Marker Using Function
+            function addMarker(coordinates) {
+                var marker = new google.maps.Marker({
+                position : coordinates,
+                map:map,
+                icon:"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+                }); 
+            }
+
+            // Another Way
+            // Calling addMarker With Coordiantes
+            addMarker({
+                coordinates:{lat:23.777176, lng:90.399452},
+                iconImage:"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                content:"<h1>Dhaka, Bangladesh</h1>"
+            });
+            addMarker({
+                coordinates:{lat:-27.112722, lng:-109.349686},
+                content:"<h1>Easter Island</h1>"
+            });
+            addMarker({
+                coordinates:{lat:40.712776, lng:-74.005974},
+                content:"<h1>City Of New York</h1>"
+            });
+            addMarker({
+                coordinates:{lat:26.186110, lng:-81.703506},
+                content:"<h1>Golden Gate</h1>"
+            });
+
+            // Add Marker Using Function
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                position : props.coordinates,
+                map:map,
+                //icon:props.iconImage // undefined For Other Markers
+                });
+                
+                // Check For Custom IconImage
+                if(props.iconImage) {
+                    // Set Custom IconImage Marker
+                    marker.setIcon(props.iconImage);
+                }
+
+                // Check For Marker COntent
+                if(props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content:props.content
+                    });
+
+                    // Displaying Info 
+                    marker.addListener("click", function() {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
+            */
+
+            // Cleaner Way
+            // Array Of All Markers
+            var markers = [
+                {
+                    coordinates:{lat:23.777176, lng:90.399452},
+                    iconImage:"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                    content:"<h1>Dhaka, Bangladesh</h1>"
+                },
+                {
+                    coordinates:{lat:-27.112722, lng:-109.349686},
+                    content:"<h1>Easter Island</h1>"
+                },
+                {
+                    coordinates:{lat:40.712776, lng:-74.005974},
+                    content:"<h1>City Of New York</h1>"
+                },
+                {
+                    coordinates:{lat:26.186110, lng:-81.703506},
+                    content:"<h1>Golden Gate</h1>"
+                }
+            ];
+
+
+            // Loop Through Existing Markers
+            for(var i=0; i<markers.length; i++) {
+                // Add Marker 
+                addMarker(markers[i]);
+            }
+
+            // Add Marker Using Function
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                position : props.coordinates,
+                map:map,
+                //icon:props.iconImage // undefined For Other Markers
+                });
+                
+                // Check For Custom IconImage
+                if(props.iconImage) {
+                    // Set Custom IconImage Marker
+                    marker.setIcon(props.iconImage);
+                }
+
+                // Check For Marker COntent
+                if(props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content:props.content
+                    });
+
+                    // Displaying Info 
+                    marker.addListener("click", function() {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
         }
     </script>
 
