@@ -83,6 +83,18 @@ body{
     color: #333333;
 }
 
+@media (max-width: 500px) {
+    .slide .content {
+        bottom: -300px;
+        left: 0;
+        width: 100%;
+    }
+
+    .slide.current .content {
+        transform: translateY(-300px);
+    }
+}
+
 /* Background Images */
 .slide:first-child {
     background: url('images/scenic_image.jpg') no-repeat
