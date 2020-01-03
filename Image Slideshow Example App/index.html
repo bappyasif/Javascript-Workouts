@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Slideshow</title>
+</head>
+<body>
+    <script>
+        var count = 0; // Starting Point
+        var images = [] // Image Arrays
+        var slideTimer = 2000; // Image Slideshow Timer Wait
+
+        // Image Lits
+        images[0] = "images/graffiti-banner.jpg";
+        images[1] = "images/graffiti-ink.jpg";
+        images[2] = "images/graffiti-paint.jpg";
+        images[3] = "images/graffiti-wall.jpg";
+        
+
+        // Changing Image
+        function changeImage() {
+            document.slide.src = images[count];
+
+            if(count < images.length - 1) {
+                count++;
+            } else {
+                count = 0;
+            }
+
+            setTimeout("changeImage()", slideTimer);
+        }
+
+        // Loading Images
+        window.onload = changeImage;
+    </script>
+    <!--Anchor Tag Viewport Dimension-->
+    <img name="slide" width="400" height="200" />
+</body>
+</html>
