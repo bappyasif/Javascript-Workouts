@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Animated Icons</title>
+
+    <style>
+        #chain, #battery, #hourglass, #angledoubles{
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="chain" class="fa"></div>
+
+    <br><br>
+
+    <div id="battery" class="fa"></div>
+
+    <br><br>
+
+    <div id="hourglass" class="fa"></div>
+
+    <br><br>
+
+    <div id="angledoubles" class="fa"></div>
+
+    <script>
+        // Break Chain Animation Method
+        function breakChain() {
+            let chain_icon = document.getElementById("chain");
+            chain_icon.innerHTML = "&#xf0c1;";
+
+            setTimeout(function() {
+                chain_icon.innerHTML = "&#xf127;";
+            }, 1000);
+        }
+
+        // Call Animation To Initiate
+        breakChain();
+
+        // Animating Every Two Seconds
+        setInterval(breakChain, 2000);
+
+        // Battery Charge Animation Method
+        function chargeBattery() {
+            let battery_icon = document.getElementById("battery");
+            battery_icon.innerHTML = "&#xf244;";
+
+            setTimeout(function() {
+                battery_icon.innerHTML = "&#xf243;";
+            }, 1000);
+
+            setTimeout(function() {
+                battery_icon.innerHTML = "&#xf242;";
+            }, 2000);
+
+            setTimeout(function() {
+                battery_icon.innerHTML = "&#xf241;";
+            }, 3000);
+
+            setTimeout(function() {
+                battery_icon.innerHTML = "&#xf240;";
+            }, 4000);
+        }
+
+        // Calling Battery Icon Animation
+        chargeBattery();
+
+        // Animating Charging Animation Periodically
+        setInterval(chargeBattery, 5000);
+
+        // Hourglass Tip Animation Method
+        function hourglassTipped() {
+            let hourglass_icon = document.getElementById("hourglass");
+            hourglass_icon.innerHTML = "&#xf251;";
+
+            setTimeout(function() {
+                hourglass_icon.innerHTML = "&#xf252;";
+            }, 1000);
+
+            setTimeout(function() {
+                hourglass_icon.innerHTML = "&#xf253;";
+            }, 2000);
+        }
+
+        // Calling Hourglass Animation Method
+        hourglassTipped();
+
+        // Runing Hourglass Animation Periodically
+        setInterval(hourglassTipped, 3000);
+
+        // Angle Doubles Icons Animation
+        function angleDoubles() {
+            let angle_icons = document.getElementById("angledoubles");
+            angle_icons.innerHTML = "&#xf100;";
+
+            setTimeout(function() {
+                angle_icons.innerHTML = "&#xf103;";
+            }, 1000);
+
+            setTimeout(function() {
+                angle_icons.innerHTML = "&#xf101;";
+            }, 2000);
+
+            setTimeout(function() {
+                angle_icons.innerHTML = "&#xf102;";
+            }, 3000);
+        }
+
+        // Calling Angle Doubles Animation
+        angleDoubles();
+
+        // Calling Angle Animation Periodically
+        setInterval(angleDoubles, 4000);
+
+    </script>
+
+</body>
+</html>
