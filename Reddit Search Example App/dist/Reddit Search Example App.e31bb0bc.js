@@ -124,17 +124,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-// Tyoe parcel index.html In console Terminal To Get Parcel Loaded With Our index.html File
+// Type parcel index.html In console Terminal To Get Parcel Loaded With Our index.html File
 var _default = {
   search: function search(searchTerm, searchLimit, sortBy) {
     //console.log("Search Contents");
-    fetch("http://www.reddit.com/search.json?q=".concat(searchTerm, "&").concat(sortBy, "&").concat(searchLimit)).then(function (response) {
+    return fetch("http://www.reddit.com/search.json?q=".concat(searchTerm, "&").concat(sortBy, "&").concat(searchLimit)).then(function (response) {
       return response.json();
-    }).then(function (data) {
-      return console.log(data);
+    }) //.then(data => console.log(data));
+    .then(function (data) {
+      return data.data.children.map(function (data) {
+        return data.data;
+      });
+    }).catch(function (error) {
+      return console.log(error);
     });
   }
 };
+/*
+.then(data => data.data.children.map(data => data.data))
+        .catch(error => console.log(error)); */
+
 exports.default = _default;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -167,8 +176,21 @@ search_form.addEventListener("submit", function (event) {
 
   search_input.value = ""; // Search Reddit
   //reddit.search(search_phrase, search_limit, sort_by);
+  //reddit_api.search(search_phrase, search_limit, sort_by);
 
-  _redditapi.default.search(search_phrase, search_limit, sort_by); //fetchAPI(search_phrase, search_limit, sort_by);
+  _redditapi.default.search(search_phrase, search_limit, sort_by).then(function (results) {
+    //console.log(results);
+    var output_div = "<div class='card-columns'>"; // Loop Through Posts Results
+
+    results.forEach(function (post) {
+      // Check For Image Tag
+      var image_element = post.preview ? post.preview.images[0].source.url : "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
+      output_div += "\n            <div class=\"card\">\n                <img src=\"".concat(image_element, "\" class=\"card-img-top\" alt=\"...\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">").concat(post.title, "</h5>\n                    <p class=\"card-text\">").concat(truncateTexts(post.selftext, 100), "</p>\n                    <a href=\"").concat(post.url, "\" target=\"_blank\" class=\"btn btn-primary\">Read More</a>\n                    <hr>\n                    <span class=\"badge badge-secondary\">Subreddit: ").concat(post.subreddit, "</span>\n                    <span class=\"badge badge-dark\">Score: ").concat(post.score, "</span>\n                </div>\n            </div>\n            ");
+    });
+    output_div += '</div>'; // Displaying Results
+
+    document.getElementById("results").innerHTML = output_div;
+  }); //fetchAPI(search_phrase, search_limit, sort_by);
 
 
   event.preventDefault();
@@ -197,6 +219,13 @@ function showMessage(message, className) {
   setTimeout(function () {
     return document.querySelector('.alert').remove();
   }, 2000);
+} // Truncate Texts
+
+
+function truncateTexts(text, limit) {
+  var shotened_text = text.indexOf("", limit);
+  if (shotened_text == -1) return text;
+  return text.substring(0, shotened_text);
 }
 },{"./redditapi.js":"redditapi.js"}],"C:/Users/BaPpY/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -226,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57148" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54998" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
