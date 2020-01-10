@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link 
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    
+    <link 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <title>Samrt 4K Television Ratings </title>
+
+    <style>
+        .stars-outer{
+            position: relative;
+            display: inline-block;
+        }
+
+        .stars-inner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+        }
+
+        .stars-outer::before{
+            content: "\f005 \f005 \f005 \f005 \f005";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>4K Television</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="sony">
+                    <td>Sony Smart 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="samsung">
+                    <td>Samsung Smart 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="apple">
+                    <td>Apple Smart 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="philips">
+                    <td>Philips Smart 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="panasonic">
+                    <td>Panasonic Smart 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        // Initial Ratings
+        const ratings = {
+            sony:4.7,
+            samsung:3.4,
+            apple:4.9,
+            philips:3.2,
+            panasonic:4.1
+        }
+
+        // Total Stars
+        const startsTotal = 5;
+
+        // Run getRatings When DOM Loads
+        document.addEventListener("DOMContentLoaded", getRatimgs);
+
+        // Get Ratings
+        function getRatimgs() {
+            //console.log("ratings ran");
+            for(let rating in ratings) {
+                //console.log(ratings[rating]);
+
+                // Get Percentage For Ratings
+                const startPercentage = (ratings[rating]/startsTotal) * 100;
+                //console.log(startPercentage);
+
+                // Rounding Up Star Percentage 
+                const starRatingsPercentageRounded = `${Math.round(startPercentage / 10) * 10}%`;
+                //console.log(starRatingsPercentageRounded);
+
+                // Set Width Of Stars-Inner To Percentage
+                document.querySelector(`.${rating} .stars-inner`).style.width = starRatingsPercentageRounded;
+                // document.querySelector(`.${rating}.stars-inner`)
+                // .style.width = starRatingsPercentageRounded;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
