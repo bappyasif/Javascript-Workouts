@@ -37,10 +37,32 @@
             font-weight: 900;
             color: #cccccc;
         }
+
+        .stars-inner::before{
+            content: "\f005 \f005 \f005 \f005 \f005";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #f8ce0b;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
+        <div class="form-group">
+            <select id="product-select" 
+                class="form-control custom-select">
+                <option value="0" disabled selected>Select Peoduct</option>
+                <option value="sony">Sony Smart 4K TV</option>
+                <option value="samsung">Samsung Smart 4K TV</option>
+                <option value="apple">Apple Smart 4K TV</option>
+                <option value="philips">Philips Smart 4K TV</option>
+                <option value="panasonic">Panasonic Smart 4K TV</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="rating-control" 
+            step="01" max="5" placeholder="Rate From Scale 1-5" disabled>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -114,6 +136,39 @@
         // Run getRatings When DOM Loads
         document.addEventListener("DOMContentLoaded", getRatimgs);
 
+        // Form Elements
+        const productSelect = document.getElementById("product-select");
+        const ratingControl = document.getElementById("rating-control");
+
+        // Init Product
+        let product;
+
+        // Product Change On Select
+        productSelect.addEventListener("change", event => {
+            product = event.target.value;
+            //console.log(product);
+
+            // Enable Ratings
+            ratingControl.disabled = false;
+            ratingControl.value = ratings[product];
+        });
+
+        // Rating Control On Blur
+        ratingControl.addEventListener("blur", event => {
+            const rating = event.target.value;
+
+            // Ratings Validation
+            if(rating > 5) {
+                alert("please Rate From 1-5");
+                return;
+            }
+
+            // Rateings Cahnge Taking Effect
+            ratings[product] = rating;
+
+            getRatimgs();
+        });
+
         // Get Ratings
         function getRatimgs() {
             //console.log("ratings ran");
@@ -132,6 +187,9 @@
                 document.querySelector(`.${rating} .stars-inner`).style.width = starRatingsPercentageRounded;
                 // document.querySelector(`.${rating}.stars-inner`)
                 // .style.width = starRatingsPercentageRounded;
+
+                // Setting Number Ratings Alongside
+                document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
             }
         }
 
