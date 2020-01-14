@@ -1,0 +1,14 @@
+{
+  "name": "fancy-form",
+  "version": "1.0.0",
+  "description": "fancy form example app",
+  "main": "index.js",
+  "scripts": {
+    "saas": " node-sass -w scss/ -o css/"
+  },
+  "author": "aBappy",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
