@@ -243,14 +243,51 @@ var global = arguments[3];
 
   module.exports = fetchJsonp;
 });
+},{}],"js/validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isValidZipCode = isValidZipCode;
+exports.showAlert = showAlert;
+
+function isValidZipCode(zipCode) {
+  return /^\d{5}(-\d{4})?$/.test(zipCode);
+} // Display Alert Message Prompt
+
+
+function showAlert(message, classNmaee) {
+  // create div
+  var div = document.createElement("div"); // Add Classes
+  //div.className = "alert alert-danger";
+
+  div.className = "alert alert-".concat(className); // Add Text
+
+  div.appendChild(document.createTextNode(message)); //Get Container
+
+  var container = document.querySelector(".coontainer"); // Get Form
+
+  var form = document.querySelector(".pet-form"); // Insert Alert
+
+  container.insertBefore(div, form); // Alert Message Cleaned Up
+
+  setTimeout(function () {
+    return document.querySelector(".alert").remove();
+  }, 2000);
+}
 },{}],"js/main.js":[function(require,module,exports) {
 "use strict";
 
 var _fetchJsonp = _interopRequireDefault(require("fetch-jsonp"));
 
+var _validate = require("./validate");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //console.log(1234);
+var apiKey = "TBsQwZjZiLQWKNAwWl7Jvu2Et5WKADYUgkg4gA6aaWqDpcuMSC";
+var secretKey = "aM2gK1bIQYuN4iyWba2J1Zm6IDSZEYa8DmOardv2";
 var pet_form = document.querySelector("#pet-form");
 pet_form.addEventListener("submit", fetchAnimals); // Fetch Animals From API
 
@@ -258,16 +295,22 @@ function fetchAnimals(event) {
   event.preventDefault(); // Get User Provided Input
 
   var input_animal = document.querySelector("#animal").value;
-  var input_zipcode = document.querySelector("#zip").value; // Fetch Pets
+  var input_zipcode = document.querySelector("#zip").value; // Validate ZipCode
 
-  (0, _fetchJsonp.default)("http://api.petfinder.com/pet.find?format=json&key=TBsQwZjZiLQWKNAwWl7Jvu2Et5WKADYUgkg4gA6aaWqDpcuMSC&animal=".concat(input_animal, "&location=").concat(input_zipcode, "&callback=callback"), {
+  if (!(0, _validate.isValidZipCode)(input_zipcode)) {
+    alert("Please Enter Valid Zipcode", danger);
+    return;
+  } // Fetch Pets
+
+
+  (0, _fetchJsonp.default)("http://api.petfinder.com/pet.find?format=json&key=apiKey&Secret=secretKey&animal=".concat(input_animal, "&location=").concat(input_zipcode, "&callback=callback"), {
     mode: 'no-cors'
   }, {
     jsonpCallbackFunction: 'callback'
   }).then(function (res) {
     return res.json();
   }).then(function (data) {
-    return showAnimals(data);
+    return showAnimals(data.petfinder.pets.pet);
   }).catch(function (err) {
     return console.log(err);
   });
@@ -276,8 +319,23 @@ function fetchAnimals(event) {
 
 function callback(data) {
   console.log(data);
+} // Show Listing Of Pets
+
+
+function showAnimals(pets) {
+  var reults_output = document.querySelector("#results"); // Clear First
+
+  reults_output.innerHTML = ""; // Loop Through Pets Element
+
+  pets.forEach(function (pet) {
+    //console.log(pet);
+    var div = document.createElement("div");
+    div.classList.add("card", "card-body", "mb-3");
+    div.innerHTML = "\n      <div class=\"row\">\n        <div class=\"col-sm-6\">\n          <h4>".concat(pet.name.$t, " (").concat(pet.age.$t, ")</h4>\n          <p class=\"text-secondary\">").concat(pet.breeds.breed.$t, "</p>\n          <p>").concat(pet.contact.addresss1.$t, " ").concat(pet.contact.city.$t, "\n            ").concat(pet.contact.state.$t, " ").concat(pet.contact.zip.$t, "\n          </p>\n          <ul class=\"list-group\">\n            <li class =\"list-group-item\">Phone : ").concat(pet.contact.phone.$t, "</li>\n            ").concat(pet.contact.email.$t ? "<li class =\"list-group-item\">Email : ".concat(pet.contact.email.$t, "</li>") : "", "\n            <li class =\"list-group-item\">Shelter ID : ").concat(pet.shelterId.$t, "</li>\n          </ul>\n        </div>\n        <div class=\"col-sm-6 text-center\">\n          <img class=\"img-fluid rounded-circle mt-2\" \n          src=\"").concat(pet.media.photos.photo[3].$t, "\">\n        </div>\n      </div>\n    ");
+    reults_output.appendChild(div);
+  });
 }
-},{"fetch-jsonp":"node_modules/fetch-jsonp/build/fetch-jsonp.js"}],"C:/Users/BaPpY/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"fetch-jsonp":"node_modules/fetch-jsonp/build/fetch-jsonp.js","./validate":"js/validate.js"}],"C:/Users/BaPpY/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -305,7 +363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62711" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63748" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
