@@ -16,7 +16,7 @@ const randomPassword = {
 }
 
 // Event Listener For Generate
-generateElement.addEventListener('click', () => {
+generate.addEventListener('click', () => {
         //const length = lengthElement.value;
         const length = +lengthElement.value;
         const hasLower = lowercaseElement.checked;
@@ -49,16 +49,16 @@ clipboardement.addEventListener("click", () => {
 
 
 // Gnerate Password Function Definition
-function generatePassword(lower, upper, number, symol, length) {
+function generatePassword(lower, upper, number, symbol, length) {
     // 1. Init Variable
     let generated_password = "";
-    const typesCount = lower + upper + number + symol;
+    const typesCount = lower + upper + number + symbol;
     console.log(typesCount);
     //const typesArray = [lower, upper, number, symol];
     //const typesArray = [{lower}, {upper}, {number}, {symol}];
 
     // 2. Filter Out Unchecked Types
-    const typesArray = [{lower}, {upper}, {number}, {symol}].filter(
+    const typesArray = [{lower}, {upper}, {number}, {symbol}].filter(
         item => Object.values(item)[0]
     );
     console.log(typesArray);
