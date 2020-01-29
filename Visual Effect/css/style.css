@@ -1,0 +1,54 @@
+header {
+    /*float: right;*/
+}
+
+.intro-text {
+    width: 30%;
+    transition: 0.5s all ease-in-out;
+    /*opacity: 1;*/
+    opacity: 1;
+    transform: translateY(20px);
+}
+
+.intro-text h2 {
+    /*opacity: 1;*/
+    display: flexbox;
+    color: yellowgreen;
+    align-items: center;
+    float: inline-start;
+
+}
+
+.into-appear {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.intro-title {
+    display: flexbox;
+    color: red;
+    font-size: 200px;
+    text-align: justify;
+    float: left;
+}
+
+.next-img {
+    
+    display: flex;
+    flex-direction: column;
+    display: block;
+    float: inline-end;
+    opacity: 1;
+    align-self: auto;
+}
+
+.intro-content {
+    display: flexbox;
+    align-content: space-around;
+    color: teal;
+    align-items: center;
+    font-family: Montserrat;
+    font-weight: bolder;
+    font-size: 50px;
+    
+}
