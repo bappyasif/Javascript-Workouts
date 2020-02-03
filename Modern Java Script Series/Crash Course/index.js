@@ -73,7 +73,126 @@ function multiplyNumbers(x, y) {
 multiplyNumbers();
 multiplyNumbers(20, 10);
 
+function PersonsExample(person_name, person_age, hairColor, eyeColor) {
+  this.name = person_name;
+  this.age = person_age;
+  this.color = hairColor;
+  this.eye = eyeColor;
+}
+
+PersonsExample.prototype.greetPerson = function() {
+  console.log(`Greetings : ${this.name} Hair Colored : ${this.color}`);
+};
+
+const aBappy = new PersonsExample("aBappy", 26, "Brownish", "light Brownish");
+
+console.log(aBappy);
+
+aBappy.greetPerson();
+
+function Bappy(occupation, hobbies, name, age, hair, eye) {
+  PersonsExample.call(this, name, age, hair, eye);
+  this.occupation = occupation;
+  this.hobbies = hobbies;
+}
+
+Bappy.prototype = Object.create(PersonsExample.prototype);
+
+const person = new Bappy(
+  "Apprenticeship",
+  "Doing Stuff",
+  "aBAppy",
+  26,
+  "Light Browninsh",
+  "Brownish"
+);
+
+person.greetPerson();
+
+console.log("start");
+function getData(data, callback) {
+  setTimeout(() => {
+    console.log("Retrieving Data");
+    callback({ data: data });
+  }, 2000);
+}
+
+getData(5, function(data) {
+  console.log(data);
+});
+console.log("finish");
+
 // ES6
+
+const promise = new Promise((resolve, reject) => {
+  // Asynchronous Code
+  setTimeout(() => {
+    resolve(500);
+  }, 2000);
+
+  setTimeout(() => {
+    reject(new Error("Something Wrong"));
+  }, 2000);
+});
+
+promise
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => console.log(error));
+
+class ShoppingCart {
+  constructor(items, nr) {
+    this.items = items;
+    this.nr = nr;
+  }
+  sayList() {
+    console.log(this.items);
+  }
+}
+
+const shoppingList = new ShoppingCart(
+  ["Milks", "Meats", "Pears", "Peaches"],
+  4
+);
+
+console.log(shoppingList);
+shoppingList.sayList();
+
+class Product extends ShoppingCart {
+  constructor(items, number, amount, cost) {
+    super(items, number);
+    this.amount = amount;
+    this.cost = cost;
+  }
+}
+
+const new_product = new Product(["Redbull", "Monster"], 2, 4, 20);
+
+console.log(new_product);
+new_product.sayList();
+
+const shopping_list = ["Milks", "Meats", "Pears", "Peaches"];
+shopping_list.forEach(prduct => {
+  console.log("Product : " + prduct);
+});
+
+shopping_list.forEach((prduct, index) => {
+  console.log(`Product : ${prduct} At Index : ${index}`);
+});
+
+const map_list = shopping_list.map(intem => {
+  return intem + "Modified Value";
+});
+
+const filter_list = shopping_list.filter(item => {
+  //return item === "Pears";
+  return item !== "Meats";
+});
+
+console.log(filter_list);
+
+console.log(map_list);
 
 const multNumbers = (a = 1, b = 1) => {
   console.log(a * b);
