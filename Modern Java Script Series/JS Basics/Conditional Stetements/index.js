@@ -39,9 +39,9 @@ let options_chosed = document.querySelector(".choose-options");
 
 let form_element = document.getElementById("selectOptions");
 
-//let chosed_element = document.querySelector("chosedOption");
+let chosed_element = document.querySelector("chosedOption");
 
-let options_selected = select_options.value;
+//let options_selected = select_options.value;
 
 // console.log(options_selected);
 // select_options.addEventListener("input", function(event)
@@ -55,3 +55,9 @@ form_element.addEventListener("input", function() {
   //options_chosed.textContent = event.target.value;
   console.log(options_selected);
 });
+
+// form_element.addEventListener("submit", function() {
+//   let selectedOption = select_options.value;
+//   console.log(selectedOption);
+//   console.log(checkpoint);
+// });
