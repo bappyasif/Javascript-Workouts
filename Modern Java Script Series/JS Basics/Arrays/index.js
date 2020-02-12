@@ -92,3 +92,31 @@ console.log(anotherReduced);
 const anotherSample = sampleArray.reduce((acVal, cuVal) => acVal + cuVal);
 
 console.log(anotherSample);
+
+// Map Array
+const mappedArray = sampleArray.map(element => `<li>${element}</li>`);
+console.log(mappedArray);
+const htmlJoining = mappedArray.join("");
+console.log(htmlJoining);
+const htmlJoiningWithUL = "<ul>" + mappedArray.join("") + "</ul>";
+console.log(htmlJoiningWithUL);
+
+const filteredMapped = filteredExample.map(value => {
+  // const object = { element: value };
+  // return object;
+  return (object = { element: value });
+});
+
+console.log(filteredMapped);
+
+// const concisedMapped = filteredExample.map(element => { value : element})
+const concisedMapped = filteredExample.map(element => ({ value: element }));
+console.log(concisedMapped);
+
+const chainingExample = sampleArray
+  .filter(value => value >= 0)
+  .map(element => ({ value: element }))
+  .filter(object => object.value > 1)
+  .map(object => object.value);
+// .map(object => object.value > 1)
+console.log(chainingExample);
