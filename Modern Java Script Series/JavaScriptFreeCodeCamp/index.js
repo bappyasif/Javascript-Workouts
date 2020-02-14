@@ -199,3 +199,305 @@ function localScoping() {
 
 localScoping();
 //console.log(localVariable);
+
+// Variable Precedence
+function localPrecedence() {
+  let globalVariable = "Within Function";
+  console.log(globalVariable);
+}
+
+localPrecedence();
+console.log(globalVariable);
+
+// Return Value From Function
+function deductNumber(value) {
+  return value - 2;
+}
+
+console.log(deductNumber(7));
+
+function multiplyValue(number) {
+  return number * 5;
+}
+console.log(multiplyValue(5));
+
+let multReturned = multiplyValue(1);
+console.log(multReturned);
+
+function devideIntegers(val) {
+  val /= 2; // Will Return Undefined To Console For Not Including Return Keyword.
+}
+
+console.log(devideIntegers(8)); // Logs Undefined.
+
+// Queuee Basics.
+function nextItemInLine(array, item) {
+  // Adding To Existing List
+  array.push(item);
+  // Poping First Array Element
+  return array.shift();
+}
+
+let testArray = [1, 2, 3, 4];
+
+// Before Mutation
+console.log("Before : " + JSON.stringify(testArray));
+console.log("Item Shifted : " + nextItemInLine(testArray, 6));
+console.log("After Mutation : " + JSON.stringify(testArray));
+console.log("After Mutation : " + testArray);
+
+// Boolean Values
+function returnBoolean() {
+  return true || false;
+}
+console.log(returnBoolean());
+
+// If Conditionals
+function ifConditionals(isTrue) {
+  if (isTrue) {
+    return "Yes, It Is True";
+  }
+  return "Nope, That Was False";
+}
+
+console.log(ifConditionals(true));
+
+// Equality Comparator
+function equalityComperator(value) {
+  if (value == 12) {
+    return "Equality Matched";
+  }
+  return "Equality Unmatched";
+}
+console.log(equalityComperator(12));
+
+function strictEquality(value) {
+  if (value === 7) {
+    return "Number Matched";
+  }
+  return "Number Unmatched";
+}
+console.log(strictEquality(7));
+
+function equalityCheck(val, chk) {
+  if (val == chk) {
+    return "Equality Checked";
+  }
+  return "Not Equal";
+}
+console.log(equalityCheck(5, "5"));
+
+function strictEquality(value, number) {
+  if (value === number) {
+    return "Strictly Equal";
+  }
+  return "Strictly Unequal";
+}
+console.log(strictEquality(5, "5"));
+
+function notEqual(number) {
+  if (number != 99) {
+    return "Not Equal";
+  }
+  return "Number Checks";
+}
+console.log(notEqual(99));
+
+function strictlyInequal(value) {
+  if (value !== 17) {
+    return "Not Equal";
+  }
+  return "Strictly Equal";
+}
+console.log(strictlyInequal("17" /*17*/));
+
+// Comparisons Operator
+function testGreater(value) {
+  if (value > 100) {
+    return "Number Greater";
+  }
+
+  if (value > 10) {
+    return "Number Greater Than 10";
+  }
+
+  return "Below 10";
+}
+console.log(testGreater(100));
+
+function greaterThanOrEqual(value) {
+  if (value >= 100) {
+    return "Number Greater";
+  }
+
+  if (value >= 10) {
+    return "Number Greater Than 10";
+  }
+
+  return "Below 10";
+}
+console.log(greaterThanOrEqual(100));
+
+function lessThan(value) {
+  if (value < 10) {
+    return "Samller Number";
+  }
+
+  if (value < 5) {
+    return "Smaller Than Number 5";
+  }
+
+  return "Lesser Number";
+}
+console.log(lessThan(9));
+
+function lessThanOrEqual(value) {
+  if (value <= 10) {
+    return "Less Than Or 10";
+  }
+
+  if (value <= 5) {
+    return "Less Than Or 5";
+  }
+
+  return "Lesser Number";
+}
+console.log(lessThanOrEqual(9));
+
+function logicalAnd(value) {
+  if (value < 50 && value > 23) {
+    return "True";
+  }
+
+  return "False";
+}
+console.log(logicalAnd(25));
+
+function logicalOr(value) {
+  if (value < 10 || value > 20) {
+    return "Outside";
+  }
+  return "Inside";
+}
+console.log(logicalOr(11));
+
+// Else Statements
+function elseStatements(value) {
+  if (value > 5) {
+    return "Over 5";
+  } else {
+    return "Below 5";
+  }
+}
+console.log(elseStatements(7));
+
+function elseIfs(value) {
+  if (value > 10) {
+    return "Over 10";
+  } else if (value < 5) {
+    return " Below 5";
+  } else {
+    return "Between 5 To 10";
+  }
+}
+console.log(elseIfs(7));
+
+function elseIfsSequencePrecedence(value) {
+  if (value < 5) {
+    return "Less Than Number 5";
+  } else if (value < 10) {
+    return "Less Than Number 10";
+  } else {
+    return "Above 10";
+  }
+}
+console.log(elseIfsSequencePrecedence(4));
+
+function chainingIfElseStatememts(value) {
+  if (value < 5) {
+    return "Tiny";
+  } else if (value < 10) {
+    return "Small";
+  } else if (value < 15) {
+    return "Big";
+  } else if (value < 20) {
+    return "Large";
+  } else {
+    return "Huge";
+  }
+}
+console.log(chainingIfElseStatememts(24));
+
+// Golf Game
+let scoreNames = [
+  "Hole-In_One",
+  "Eagle",
+  "Birdie",
+  "Par",
+  "Bogey",
+  "Double Bogey",
+  "Go Home!"
+];
+
+function golfGame(parScore, strokes) {
+  if (strokes == 1) {
+    return scoreNames[0];
+  } else if (strokes <= parScore - 2) {
+    return scoreNames[1];
+  } else if (strokes == parScore - 1) {
+    return scoreNames[2];
+  } else if (strokes == parScore) {
+    return scoreNames[3];
+  } else if (strokes == parScore + 1) {
+    return scoreNames[4];
+  } else if (strokes == parScore + 2) {
+    return scoreNames[5];
+  } else if (strokes >= parScore + 3) {
+    return scoreNames[6];
+  } else {
+    return "Check Your Score Please";
+  }
+}
+
+console.log(golfGame(5, 4));
+
+// Switch Statements
+function switchStatements(value) {
+  let result = "";
+  switch (value) {
+    case 1:
+      result = "alpha";
+      break;
+    case 2:
+      result = "beta";
+      break;
+    case 3:
+      result = "gamma";
+      break;
+    case 4:
+      result = "delta";
+      break;
+  }
+  return result;
+}
+console.log(switchStatements(2));
+
+function switchStatementsWithDefault(value) {
+  let answer = "";
+  switch (value) {
+    case "a":
+      answer = "apple";
+      break;
+    case "b":
+      answer = "bird";
+      break;
+    case "c":
+      answer = "kitty";
+      break;
+    default:
+      answer = "Tweety";
+      break;
+  }
+  return answer;
+}
+console.log(switchStatementsWithDefault("b"));
