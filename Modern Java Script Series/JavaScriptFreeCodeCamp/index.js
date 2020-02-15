@@ -501,3 +501,327 @@ function switchStatementsWithDefault(value) {
   return answer;
 }
 console.log(switchStatementsWithDefault("b"));
+
+function sequntialSizes(value) {
+  var answer = "";
+
+  switch (value) {
+    case 1:
+    case 2:
+    case 3:
+      answer = "Low Range";
+      break;
+
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid Range";
+      break;
+
+    case 7:
+    case 8:
+    case 9:
+      answer = "High Range";
+      break;
+  }
+  return answer;
+}
+
+console.log(sequntialSizes(8));
+
+function chainToSwitchStatements(value) {
+  let answer = "";
+
+  switch (value) {
+    case "bob":
+      answer = "Bob Marley";
+      break;
+    case 42:
+      answer = "The Answer";
+      break;
+    case 1:
+      answer = "There Is No Number #01";
+      break;
+    case 99:
+      answer = "Missed By This Much";
+      break;
+    case 7:
+      answer = "Ate Nine";
+      break;
+  }
+  return answer;
+}
+
+console.log(chainToSwitchStatements(99));
+
+// Returning Values
+function concisedReturn(value, number) {
+  return value < number;
+  // if(value < number) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+}
+console.log(concisedReturn(10, 15));
+
+function returningEarly(value, number) {
+  if (value < 0 || number < 0) {
+    return undefined;
+  }
+  return Math.round(Math.pow(Math.sqrt(value) + Math.sqrt(number), 2));
+}
+console.log(returningEarly(-2, 2));
+
+// Card Counting Black Jack
+let count = 0;
+function countingCards(card) {
+  // Low Cards Count Decreases
+  // High Cards Count Increases
+  // Mid Cards Count Unchanged
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count++;
+      break;
+    // case 7:
+    // case 8:
+    // case 9:
+    //   count = count;
+    //   break;
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count--;
+      break;
+  }
+  // If Count Positive Bet High
+  // If Count Negative Bet Low
+  let checkBet = "Hold";
+  if (count > 0) {
+    checkBet = "Place Bet";
+  }
+
+  return count + " " + checkBet;
+}
+
+countingCards(2);
+countingCards(3);
+countingCards("K");
+countingCards("K");
+countingCards("A");
+
+console.log(countingCards(4));
+
+// Creating Objects
+let samplePet = {
+  name: "Goody",
+  legs: 4,
+  tails: 1,
+  friends: ["For Life"]
+};
+
+console.log(samplePet);
+console.log(samplePet.name);
+
+samplePet.name = "goody goody";
+console.log(samplePet);
+console.log(samplePet.name);
+
+samplePet.bark = "woof woof";
+console.log(samplePet);
+
+delete samplePet.bark;
+console.log(samplePet);
+
+let sampleObject = {
+  hat: "ballcap",
+  shirt: "jersey",
+  shoes: "cleats",
+  tattoes: "symbols"
+};
+let hatValue = sampleObject.hat;
+console.log(hatValue);
+let shirtValue = sampleObject.shirt;
+console.log(shirtValue);
+
+let bracketNotation = {
+  "an entree": "asparagus",
+  "side dish": "mixed salads",
+  "main dish": "elk steak",
+  "savory drinks": "red wine"
+};
+let entreValue = bracketNotation["an entree"];
+console.log(entreValue);
+let drinksValue = bracketNotation["savory drinks"];
+console.log(drinksValue);
+
+let anotherBracket = {
+  17: "Huxley",
+  16: "Montana",
+  19: "Unitas",
+  11: "Springer"
+};
+let playerNumber = 11;
+let newPlayer = anotherBracket[playerNumber];
+console.log(newPlayer);
+
+anotherBracket[14] = "Staely";
+console.log(anotherBracket);
+
+delete anotherBracket[14];
+console.log(anotherBracket);
+
+function phoneticsLookup(value) {
+  let result = "";
+
+  let lookup = {
+    alpha: "anemas",
+    bravo: "brover",
+    charlie: "Chis",
+    delta: "doppelganger",
+    echo: "energize",
+    foxtort: "fanny"
+  };
+
+  // switch (value) {
+  //   case "alpha":
+  //     result = "anemas";
+  //     break;
+  //   case "bravo":
+  //     result = "Brover";
+  //     break;
+  //   case "charlie":
+  //     result = "Chis";
+  //     break;
+  //   case "delta":
+  //     result = "doppelganger";
+  //     break;
+  //   case "echo":
+  //     result = "energize";
+  //     break;
+  //   case "foxtort":
+  //     result = "fanny";
+  //     break;
+  // }
+
+  result = lookup[value];
+  return result;
+}
+
+console.log(phoneticsLookup("bravo"));
+console.log(phoneticsLookup("foxtort"));
+
+let testObject = {
+  gift: "Stallion",
+  pet: "Bald Eagle",
+  cars: "Tesla",
+  bed: "Bouncy Bed"
+};
+
+function checkObject(checkProp) {
+  if (testObject.hasOwnProperty("gift")) {
+    return testObject.gift;
+    //return testObject[gift];
+  } else {
+    return "Not Found";
+  }
+  //return "Edit Code";
+}
+
+console.log(checkObject("gift"));
+
+let objectsArray = [
+  {
+    artist: "Billy Joel",
+    title: "piano Man",
+    release_year: 1973,
+    formats: ["CD", "8T", "LP", "Records"],
+    gold: true
+  },
+  {
+    artist: "Bappy Sarkar",
+    title: "Space Shooter",
+    release_year: 2009,
+    formats: ["Youtube", "Vimeo"],
+    gold: false
+  }
+];
+console.log(objectsArray);
+console.log(objectsArray[1]);
+console.log(objectsArray[1].artist);
+console.log(objectsArray[0].formats[0]);
+
+let exampleObjects = {
+  car: {
+    interior: {
+      "glove box": "maps",
+      passanger_seats: "crumbs"
+    },
+    exterior: {
+      trunk: "jack"
+    }
+  }
+};
+let gloveboxContent = exampleObjects.car.interior["glove box"];
+console.log(gloveboxContent);
+
+let plantsObject = [
+  {
+    type: "flowers",
+    plants: ["roses", "tulips", "baileys", "marigold"]
+  },
+  {
+    type: "trees",
+    plants: ["sequoia", "pine", "birch", "oak"]
+  }
+];
+console.log(plantsObject);
+console.log(plantsObject[0].type);
+console.log(plantsObject[0].plants[0]);
+console.log(plantsObject[1].plants[1]);
+
+let exampleCollection = {
+  "25648": {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["let It Rock", "You Give Love A Bad Name"]
+  },
+  "25649": {
+    album: "1999",
+    artist: "Price",
+    tracks: ["1999", "Little Red Corvette"]
+  },
+  "1245": {
+    artist: "Robert Palmer",
+    tracks: []
+  },
+  "5439": {
+    album: "ABBA Gold"
+  }
+};
+
+let collectionCopy = JSON.parse(JSON.stringify(exampleCollection));
+
+function updateRecords(id, prop, value) {
+  // If Blank Delete Property
+  if (value === "") {
+    delete exampleCollection[id][prop];
+  } else if (prop === "tracks") {
+    // If An Array Property Add To List, When Empty Create An Array.
+    exampleCollection[id][prop] = exampleCollection[id][prop] || [];
+    exampleCollection[id][prop].push(value);
+  } else {
+    // Set Property Value Argument
+    exampleCollection[id][prop] = value;
+  }
+  return exampleCollection;
+}
+
+console.log(updateRecords(5439, "artist", "ABBA"));
+console.log(updateRecords(5439, "tracks", "Test"));
