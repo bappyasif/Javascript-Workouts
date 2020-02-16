@@ -825,3 +825,147 @@ function updateRecords(id, prop, value) {
 
 console.log(updateRecords(5439, "artist", "ABBA"));
 console.log(updateRecords(5439, "tracks", "Test"));
+
+// Iteration Types
+let pushedArray = [];
+let i = 0;
+while (i < 4) {
+  pushedArray.push(i);
+  i++;
+}
+console.log(pushedArray);
+
+for (let i = 1; i < 6; i++) {
+  pushedArray.push(i);
+}
+console.log(pushedArray);
+
+let evenNumbers = [];
+for (let i = 0; i < 10; i + 2) {
+  evenNumbers.push(i);
+}
+console.log(evenNumbers);
+
+let oddNumbers = [];
+for (let i = 1; i < 10; i += 2) {
+  oddNumbers.push[i];
+}
+console.log(oddNumbers);
+
+let arrayExample = [9, 10, 11, 12];
+let arrayTotal = 0;
+for (let i = 0; i < arrayExample.length; i++) {
+  arrayTotal += arrayExample[i];
+}
+console.log(arrayTotal);
+
+let arrayNested = [
+  [1, 2],
+  [3, 4],
+  [5, 6, 7]
+];
+let product = 1;
+for (let i = 0; i < arrayNested.length; i++) {
+  for (let j = 0; j < arrayNested[i].length; j++) {
+    product *= arrayNested[i][j];
+  }
+}
+console.log(product);
+
+let arraySetup = [];
+let i = 10;
+do {
+  arraySetup.push(i);
+  i++;
+} while (i < 5);
+console.log(i, arraySetup);
+
+// Profile Lookup
+let contactsArray = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "4649794313",
+    likes: ["coding", "pizza", "brownies"]
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "4634234213",
+    likes: ["coding", "Magic", "Hagrid"]
+  },
+  {
+    firstName: "Super",
+    lastName: "Woman",
+    number: "463686213",
+    likes: ["Adventure", "Flying", "Justice"]
+  },
+  {
+    firstName: "Sherlocck",
+    lastName: "Homes",
+    number: "46356464613",
+    likes: ["Adventure", "Justice", "Intriguing Cases"]
+  },
+  {
+    firstName: "Kristen",
+    lastName: "Holmes",
+    number: "46352422613",
+    likes: ["JavaScript", "Gaming", "Tutorials"]
+  }
+];
+
+function lookupProfile(name, prop) {
+  // If Name Does Not Match With Array Objects
+  // Returns No Such Name Or No Such Property.
+  for (let i = 0; i < contactsArray.length; i++) {
+    if (contactsArray[i].firstName === name) {
+      return contactsArray[i][prop] || "No Such Property Exist";
+    }
+  }
+  return "No Such Contact Names";
+}
+
+let lookupAkira = lookupProfile("Kristen", "likes");
+console.log(lookupAkira);
+
+// Generate Random Fraction Numbers
+function randomFractions(value) {
+  return Math.random() * value;
+}
+console.log(randomFractions(2));
+
+function randomlyGeneratedWholeNumber(value) {
+  return Math.floor(Math.random() * value);
+}
+console.log(randomlyGeneratedWholeNumber(2));
+
+function randomWholeNumbersInRange(maxRange, minRange) {
+  return Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+}
+console.log(randomWholeNumbersInRange(4, 2));
+
+// ParseInt Function
+function convertStringToIntegeer(string) {
+  return parseInt(string);
+}
+console.log(convertStringToIntegeer("56"));
+
+function convertRadixToInteger(string) {
+  return parseInt(string, 2); // 2 represents number base which is binary here.
+}
+console.log(convertRadixToInteger("1010101"));
+
+// Ternery Operator
+function checkEqual(a, b) {
+  return a === b ? true : false;
+}
+console.log(checkEqual(2, 2));
+
+function multipleConditionedTernaryOperator(number) {
+  return number > 0
+    ? "Positive Number"
+    : number < 0
+    ? "Negative Nummber"
+    : "Number Zero";
+}
+console.log(multipleConditionedTernaryOperator(10));
