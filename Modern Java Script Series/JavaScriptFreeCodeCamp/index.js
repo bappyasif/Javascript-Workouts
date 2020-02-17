@@ -828,10 +828,10 @@ console.log(updateRecords(5439, "tracks", "Test"));
 
 // Iteration Types
 let pushedArray = [];
-let i = 0;
-while (i < 4) {
-  pushedArray.push(i);
-  i++;
+let ai = 0;
+while (ai < 4) {
+  pushedArray.push(ai);
+  ai++;
 }
 console.log(pushedArray);
 
@@ -969,3 +969,239 @@ function multipleConditionedTernaryOperator(number) {
     : "Number Zero";
 }
 console.log(multipleConditionedTernaryOperator(10));
+
+// Difference Between Var And Let Keywords.
+
+// let does not allow to declare same variable twice, whereas var does.
+// Use Keyword "use strict" at the begining of function or codes to catch
+// coding mistakes such as using variable without declaring it and as such.
+var catName = "Kitty";
+var quote;
+
+var catName = "Katja";
+function catTalk() {
+  catName = "Seniora";
+  quote = catName + "Says Meow!";
+}
+catTalk();
+
+let newCatName = "Seniora";
+let newQuote;
+
+catName = "Katja";
+function catTalk() {
+  catName = "Skitty";
+  newQuote = catName + "Says Meow!";
+  return newQuote;
+}
+console.log(catTalk());
+
+function checkScope() {
+  "use strict";
+  var i = "Function Scope";
+
+  if (true) {
+    i = "Block Scope";
+    console.log(i);
+  }
+
+  console.log(i);
+  return i;
+}
+checkScope();
+
+function checkScopeWithLet() {
+  "use strict";
+  let i = "Function Scope";
+
+  if (true) {
+    let i = "Block Scope";
+    console.log(i);
+  }
+
+  console.log(i);
+  return i;
+}
+checkScopeWithLet();
+
+function checkScopeWithLetInBlock() {
+  "use strict";
+  //let i = "Function Scope";
+
+  if (true) {
+    let i = "Block Scope";
+    console.log(i);
+  }
+
+  console.log(i);
+  return i;
+}
+checkScopeWithLetInBlock();
+
+function checkScopeWithVarInBlock() {
+  "use strict";
+  //let i = "Function Scope";
+
+  if (true) {
+    var i = "Block Scope";
+    console.log(i);
+  }
+
+  console.log(i);
+  return i;
+}
+checkScopeWithVarInBlock();
+
+// Read-Only Variable With Const Keyword
+function printManyTimes(string) {
+  "use strict";
+  const SENTENCE = string + " Is Cool";
+  //scentence = string + "Is Amazing";
+  for (let i = 0; i < string.length; i += 2) {
+    console.log(SENTENCE);
+  }
+}
+printManyTimes("freeCodeCamp");
+
+const initArray = [5, 7, 2];
+function reassignArrayWithConst() {
+  "use strict";
+  initArray = [1, 5, 7];
+}
+reassignArrayWithConst();
+
+function editArrayWithConst() {
+  "use strict";
+  //initArray = [2, 5, 7];
+  initArray[0] = 2;
+  initArray[1] = 5;
+  initArray[2] = 8;
+}
+editArrayWithConst();
+
+// Prevent Object Data Mutation
+function freezeObject() {
+  "use strict";
+  const MATH_CONSTANT = {
+    PI: 3.14
+  };
+
+  try {
+    MATH_CONSTANT.PI = 99;
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANT.PI;
+}
+const PI_CONSTANT = freezeObject();
+console.log(PI_CONSTANT);
+
+function freezeObjectWithFreeze() {
+  "use strict";
+  const MATH_CONSTANT = {
+    PI: 3.14
+  };
+
+  Object.freeze(MATH_CONSTANT);
+
+  try {
+    MATH_CONSTANT.PI = 99;
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANT.PI;
+}
+const A_PI_CONSTANT = freezeObjectWithFreeze();
+console.log(A_PI_CONSTANT);
+
+// Anonymous Or Arrow Functions
+const arrowFunction = () => new Date();
+console.log(arrowFunction);
+
+// let argsConcat = (arg1, arg2) => {
+//   return arg1.concat(arg2);
+// }
+let argsConcat = (arg1, arg2) => arg1.concat(arg2);
+console.log(argsConcat([1, 2, 3], [4, 5, 6]));
+
+// Higher-Order Functions (Such As Map, Filter, Reduce, IndexOf and so on)
+const arrayOfRealNumbers = [4, 5.6, -9.8, 42, 6, 8.34, -2];
+const squareList = array => {
+  const squaredAndPositiveIntegers = array.filter(
+    number => Number.isInteger(number) && number > 0
+  ); /*.map(num=>num*num)*/
+  const mappedNumbers = squaredAndPositiveIntegers.map(num => num * num);
+  //return mappedNumbers;
+  //return squaredAndPositiveIntegers;
+  return squaredAndPositiveIntegers + " : " + mappedNumbers;
+};
+const sqrdIntegers = squareList(arrayOfRealNumbers);
+console.log(sqrdIntegers);
+
+const incrementValueHigherorderFunction = (function() {
+  return function incerementValue(number, value = 1) {
+    return number + value;
+  };
+})();
+console.log(incrementValueHigherorderFunction(5, 2));
+console.log(incrementValueHigherorderFunction(2));
+
+// Without Using Rest Arguments
+const sum = (function() {
+  return function sumUp(a, b, c) {
+    const args = [a, b, c];
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3));
+
+// While Using Rest Arguments
+const sumingValues = (function() {
+  return function sumUp(...args) {
+    //const args = [a,b,c];
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sumingValues(1, 2, 3, 4));
+
+//Without Using Spread Operator
+const arrMonths = ["JAN", "FEB", "MAR", "APR"];
+let arrCopied;
+(function() {
+  arrCopied = arrMonths;
+  arrMonths[0] = "January";
+})();
+console.log(arrCopied);
+
+//With Using Spread Operator
+const arrayMonths = ["JAN", "FEB", "MAR", "APR"];
+let arrayCopied;
+(function() {
+  arrayCopied = [...arrayMonths];
+  arrMonths[0] = "January";
+})();
+console.log(arrayCopied);
+
+// Destructing Assignement
+let voxel = { x: 3.16, y: 7.4, z: 6.54 };
+
+// var voxel_x = voxel.x;
+// var voxel_y = voxel.y;
+// var voxel_z = voxel.z;
+
+const { x: a, y: b, z: c } = voxel; // a = 3.6, b = 7.4, c = 6.54
+console.log(a, b, c);
+
+const AVG_TEMP = {
+  today: 77.5,
+  tomorrow: 79
+};
+
+function getTempOfTomorrow(avgTemp) {
+  "use strict";
+  //const tempOfTomorrow = undefined;
+  const { tomorrow: tempOfTomorrow } = avgTemp;
+  return tempOfTomorrow;
+}
+
+console.log(getTempOfTomorrow(AVG_TEMP));
