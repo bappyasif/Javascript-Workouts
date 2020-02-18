@@ -1205,3 +1205,202 @@ function getTempOfTomorrow(avgTemp) {
 }
 
 console.log(getTempOfTomorrow(AVG_TEMP));
+
+// Destructuring Assignment
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
+
+function getMaxOfTomorrow(forecast) {
+  "use strict";
+  const {
+    tomorrow: { max: maxOfTomorrowForecase }
+  } = forecast;
+  return maxOfTomorrowForecase;
+}
+
+console.log(getMaxOfTomorrow(LOCAL_FORECAST));
+
+const [z, x] = [1, 2, 3, 4];
+console.log(z, x);
+
+const [z, x, , y] = [1, 2, 3, 4];
+console.log(z, x, y);
+
+let a = 8,
+  b = 6;
+(() => {
+  "use strict";
+  [a, b] = [b, a];
+})();
+console.log(a);
+console.log(b);
+
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwoElelemnts(list) {
+  //const [a, b, ...array] = list;
+  const [, , ...array] = list; // Removing First Two Elements By Using Two Commas
+  return array;
+}
+const arrExample = removeFirstTwoElelemnts(source);
+console.log(arrExample);
+console.log(source);
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const avergeScore = (function() {
+  //return function(entireObject) {
+  return function({ max, min }) {
+    //return (entireObject.max + entireObject.min) / 2.0;
+    return (max + min) / 2.0;
+  };
+})();
+console.log(stats);
+console.log(avergeScore);
+
+// Strings With Template Literals
+const person = {
+  name: "Lilian Johoba",
+  age: 29
+};
+const greetingPerson = `Hello ${person.name}! 
+ ${person.age} Years Old`;
+console.log(greetingPerson);
+
+const resultObject = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "lineebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(array) {
+  const resultDisplay = [];
+  for (let i = 0; i < array.length; i++) {
+    resultDisplay.push(`<li class="text-warning">${array[i]}</li>`);
+  }
+  return resultDisplay;
+}
+const newResultDisplayArray = makeList(resultObject.success);
+console.log(newResultDisplayArray);
+
+const cratePerson = (namePassed, agePassed, genderPassed) => {
+  return {
+    name: namePassed,
+    age: agePassed,
+    gender: genderPassed
+  };
+};
+console.log(cratePerson("Katty Perry", 29, "Female"));
+
+const cratePersonWithFields = (namePassed, agePassed, genderPassed) => ({
+  name,
+  age,
+  gender
+});
+console.log(cratePersonWithFields("Taylor Aift", 29, "Female"));
+
+const bicycle = {
+  gear: 2,
+  setGear: function(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+const anotherBicycle = {
+  gear: 2,
+  setGear(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+anotherBicycle.setGear(3);
+console.log(anotherBicycle.gear);
+
+// Class Constructor Function Syntax
+let spaceShuttle = function(planet) {
+  this.targetPlanet = planet;
+};
+let zeus = new spaceShuttle("Jupitar");
+console.log(zeus.targetPlanet);
+
+class newShuttle {
+  constructor(planet) {
+    this.targetPlanet = planet;
+  }
+}
+let prometheus = new newShuttle("Astroid Belt");
+console.log(prometheus.targetPlanet);
+
+function carryingClass() {
+  class Vegetable {
+    constructor(vegetableName) {
+      this.name = vegetableName;
+    }
+  }
+  return Vegetable;
+}
+const VegetableClass = carryingClass();
+const vegetableCabbage = new VegetableClass("Cabbage");
+console.log(vegetableCabbage.name);
+
+// Getters And Setters Methods
+class Book {
+  constructor(authorName) {
+    this.author = authorName;
+  }
+
+  get writer() {
+    return this._author;
+  }
+
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+const newBook = new Book("David Hume");
+console.log(newBook.author);
+
+function makeClass() {
+  class Thermostat {
+    constructor(temp) {
+      //this._temperature = temp;
+      this._temperature = (5 / 9) * (temp - 32);
+    }
+    get temperature() {
+      return this._temperature;
+    }
+    set temperature(newTemp) {
+      this._temperature = newTemp;
+    }
+  }
+  return Thermostat;
+}
+const ThermostatObject = makeClass();
+const thermos = new ThermostatObject(76);
+let temp = thermos.temperature;
+thermos.temperature = 26;
+temp = thermos.temperature;
+console.log(temp);
+
+// Differences Between Import And Require Methods.
+export const capitalizeString = string => string.toUpperCase();
+
+import { capitalizeString } from "./string_functions.js";
+const capitalized = capitalizeString("Hello!!");
+console.log(capitalized);
+
+import * as capitalizedString from "another_export";
+const anotherCapitalized = capitalizedString("hello!!");
+console.log(anotherCapitalized);
+
+import subtract from "another_export";
+subtract(2, 2);
