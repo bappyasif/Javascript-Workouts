@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DOM Events</title>
+  </head>
+  <body>
+    <h1 onclick="this.innerHTML='Cereal!'">What's Tastesful??</h1>
+    <h1 onclick="changeColor(this)">Click To Change Color</h1>
+    <button id="usingBtn">Click Here</button>
+    <input type="text" id="words" oninput="removeLtterFromH1()" />
+    <div class="box" onmouseover="mOver(this)" onmouseout="mOut(this)">
+      Mouse Over
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
