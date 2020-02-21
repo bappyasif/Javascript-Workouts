@@ -7,17 +7,23 @@ let div1Paragraphs = div1Element.getElementsByTagName("p");
 let queryUnicycle = document.querySelector(".unicycle"); // Returns Element Matches First
 let queryDiv2 = document.querySelector("#div2");
 let queryAll = document.querySelectorAll(".unicycle, #div2"); // If Just Use .unicycle Reult Will Be DIfferent.
-
+let div2Element = document.getElementById("div2");
+let div2Paragraphs = div2Element.getElementsByTagName("p");
 // Assigning Values To DOM Elements
 let text = `<h1>Hello World</h1>;`;
 
 //div1Element.innerHTML = text;
 
-//queryUnicycle.innerHTML = text;
+queryUnicycle.innerHTML = text;
 
-for (let i = 0; i < queryAll.length; i++) {
-  queryAll[i].innerHTML = text;
+for (let i = 0; i < div2Paragraphs.length; i++) {
+  //div2Paragraphs[i].innerText = text;
+  div2Paragraphs[i].innerHTML = text;
 }
+
+// for (let i = 0; i < queryAll.length; i++) {
+//   queryAll[i].innerHTML = text;
+// }
 
 // For Cross Site Attack Protection Use textContent Instead Of innerHTML
 //queryUnicycle.textContent = text;

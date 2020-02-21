@@ -8,9 +8,14 @@
   </head>
   <body>
     <h1 onclick="this.innerHTML='Cereal!'">What's Tastesful??</h1>
-    <h1 onclick="changeColor(this)">Click To Change Color</h1>
+    <h1 id="changeColor" onclick="changeColor(this)">Click To Change Color</h1>
     <button id="usingBtn">Click Here</button>
-    <input type="text" id="words" oninput="removeLtterFromH1()" />
+    <input
+      type="text"
+      id="words"
+      oninput="removeLtterFromH1()"
+      placeholder="Type In To Delete H1 Text Per Stroke!!"
+    />
     <div class="box" onmouseover="mOver(this)" onmouseout="mOut(this)">
       Mouse Over
     </div>

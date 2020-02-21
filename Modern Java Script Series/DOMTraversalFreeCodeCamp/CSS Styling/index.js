@@ -5,10 +5,10 @@ let attributeElement = document.getElementById("attribute");
 lineElement.style.color = "blue";
 lineElement.style.background = "teal";
 attributeElement.style.background = "red";
-attributeElement.style.boxShadow = "2px 2px 5px 1px blue";
+attributeElement.style.boxShadow = "5px 5px 5px 2px blue";
 
 // Multiple Styling - Caution : It Replaces Any Inline Styling From Earlier.
-lineElement.style.cssText = "color: blue; border: 2px solid black;";
+lineElement.style.cssText = "color: blue; border: 5px dotted black;";
 attributeElement.setAttribute("style", "color:red; border: 2px solid blue;");
 
 // To check Which Inline Styling Is In Action

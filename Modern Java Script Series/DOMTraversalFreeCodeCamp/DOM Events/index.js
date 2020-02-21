@@ -1,12 +1,21 @@
+// DOM Elements
+let changedColor = document.getElementById("changeColor");
+let usingBtn = document.getElementById("usingBtn");
+
 // DOM Events
 function changeColor(obj) {
   obj.style.color = "peru";
+  changedColor.setAttribute(
+    "style",
+    "color: peru; border: 2px double magenta;"
+  );
 }
 
 document.getElementById("usingBtn").onclick = changeNewBackgroundColor;
 
 function changeNewBackgroundColor() {
   document.querySelector("body").style.background = "MediumOrchid";
+  usingBtn.style.backgroundColor = "Orchid";
 }
 
 function removeLtterFromH1() {
@@ -20,4 +29,5 @@ function mOver(obj) {
 
 function mOut(obj) {
   obj.innerHTML = "Thank You :)";
+  obj.setAttribute("style", "color:yellow; border: 2px solid red;");
 }

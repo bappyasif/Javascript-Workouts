@@ -26,8 +26,23 @@ console.log(p1Element);
 
 //myP.onclick = function(){ myDiv.style.background = "lightblue" };
 
-p1Element.addEventListener("click", changeText);
+//p1Element.addEventListener("click", changeText);
+// When Capture Is True Outer Most Element Will Execute First,
+// For False Inner Most Element Will Exceute First.
+p1Element.addEventListener("click", changeText, true);
 
 function changeText() {
-  p2Element.textContent = "Cornell Publication";
+  p2Element.textContent = p2Element.textContent += "Cornell Publication";
 }
+
+div1Element.addEventListener("click", changeAnotherTextContent, true); // Using capture As True
+
+function changeAnotherTextContent() {
+  p2Element.textContent = p2Element.textContent += "Real Answer".toUpperCase();
+}
+
+p1Element.removeEventListener("click", changeText, false);
+// Code Below Wouldn't Work Because It Preferrs Already Defined Function.
+// p1Element.removeEventListener("click", function() {
+//   div1Element.style.background = "lightblue";
+// });
