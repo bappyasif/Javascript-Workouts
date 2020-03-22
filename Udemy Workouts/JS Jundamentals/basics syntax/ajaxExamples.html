@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Slide Show</title>
+    <script>
+      let pictures = [];
+
+      function changePicture(index) {
+        document
+          .getElementById("image_canvas")
+          .getElementsByTagName("img")[0].src =
+          pictures[index % pictures.length];
+        setTimeout(() => {
+          changePicture(index + 1);
+        }, 2000);
+      }
+
+      function load() {}
+
+      function getPictures() {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "pictures.json");
+        xhr.onload = event => {
+          pictures = JSON.parse(xhr.responseText);
+          console.log(pictures);
+          changePicture(0);
+        };
+        xhr.onerror = error => console.log(error.message);
+        xhr.send();
+      }
+
+      //   window.addEventListener("load", load);
+    </script>
+    <!-- <body onload="load();"> -->
+    <body>
+      <div>
+        <span id="txt1"> First Text</span>
+        <span id="txt2"> Second Text</span>
+      </div>
+      <form>
+        <input id="id_name" type="text" />
+      </form>
+      <h1 id="myHeader">Some Pictures</h1>
+      <div id="image_canvas" style="width:750px; height:497px; margin:0 auto">
+        <img style="height: 100%; width:100%" />
+      </div>
+    </body>
+  </head>
+</html>

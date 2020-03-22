@@ -1,0 +1,59 @@
+body {
+  /* text-align: center; */
+  background-color: cadetblue;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: darkblue;
+}
+
+#header {
+  text-align: center;
+}
+
+header h2 {
+  font-size: 4em;
+  border: dotted 1.1px forestgreen;
+  /* margin: 25px; */
+  padding: 25px;
+  margin-left: 245px;
+  margin-right: 245px;
+}
+
+#title {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+#input {
+  border: dotted 1.1px greenyellow;
+  background-color: inherit;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 550px;
+  height: 45px;
+  color: maroon;
+}
+
+#button {
+  border: dotted 1.1px greenyellow;
+  background-color: inherit;
+  font-size: 2em;
+  color: maroon;
+  /* font-style: oblique; */
+  font-weight: bolder;
+}
+
+#responseField {
+  width: 550px;
+  height: 250px;
+  border: double 1.1px forestgreen;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  overflow: hidden;
+  /* overflow-y: scroll; */
+}

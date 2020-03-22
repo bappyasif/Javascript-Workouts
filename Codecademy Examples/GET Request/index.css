@@ -1,0 +1,61 @@
+body {
+  background-color: cornflowerblue;
+  font-size: 2em;
+  text-align: center;
+}
+
+header {
+  background-color: aquamarine;
+  color: coral;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#prompt {
+  font-style: italic;
+  color: chartreuse;
+}
+
+/* #form {
+  text-align: center;
+} */
+
+#input {
+  text-align: center;
+  color: inherit;
+  width: 295px;
+  height: 38px;
+  display: block;
+  margin: auto;
+  border: solid 1.9px springgreen;
+  background-color: inherit;
+}
+
+#button {
+  color: teal;
+  font-size: 1em;
+  width: 125px;
+  height: 38px;
+  border-radius: 2px;
+  border: double 1.9px greenyellow;
+  background-color: inherit;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#responseField {
+  /* min-width: 191px;
+  min-height: 120px; */
+  width: 560px;
+  height: 470px;
+  background-color: #1f233e;
+  margin: auto;
+  margin-top: 25px;
+  font-family: Source Sans Pro;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+  overflow-wrap: break-word;
+  padding: 20px;
+}

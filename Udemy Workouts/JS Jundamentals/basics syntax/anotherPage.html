@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Slide Show</title>
+    <script>
+      let pictures = [
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/%D0%A0%D0%B5%D0%BA%D0%B0_%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%94%D0%BE%D0%BD%D0%B5%D1%86._%D0%9A%D0%BE%D1%80%D0%BE%D0%BF%D0%BE%D0%B2%D0%BE3.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b7/D%C3%BClmen%2C_Dernekamp%2C_Holzskulptur_-M%C3%A4rchenpfad-_--_2015_--_7332.jpg"
+      ];
+
+      function changeBgColor(event) {
+        // this.style.backgroundColor = "blue";
+        event.target.style.backgroundColor = "blue";
+      }
+
+      function load() {
+        document.getElementById("id_name").onclick = changeBgColor;
+        document.getElementById("txt1").onclick = changeBgColor;
+        document.getElementById("txt2").onclick = changeBgColor;
+        // document
+        //   .getElementById("image_canvas")
+        //   .getElementsByTagName("img")[0].src = pictures[0];
+        changePicture(0);
+        // addElement();
+      }
+
+      function changePicture(index) {
+        document
+          .getElementById("image_canvas")
+          .getElementsByTagName("img")[0].src =
+          pictures[index % pictures.length];
+        setTimeout(() => {
+          changePicture(index + 1);
+          // fadeIn();
+          // fadeInOpacityEstimator();
+        }, 2000);
+        // setInterval(() => {
+        //   fadeIn();
+        //   changePicture(index + 1);
+        // }, 2000);
+      }
+
+      window.addEventListener("load", load);
+    </script>
+    <!-- <body onload="load();"> -->
+    <body>
+      <div id="texts">
+        <span id="txt1"> First Text</span>
+        <span id="txt2"> Second Text</span>
+      </div>
+      <form id="form">
+        <input id="id_name" type="text" />
+      </form>
+      <h1 id="myHeader">Some Pictures</h1>
+      <div id="image_canvas" style="width:750px; height:497px; margin:0 auto">
+        <img style="height: 100%; width:100%" />
+      </div>
+    </body>
+  </head>
+</html>
