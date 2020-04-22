@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using jQuery</title>
+    <!-- <style>
+      .error {
+        background: crimson;
+      }
+    </style> -->
+
+    <script type="text/javascript" src="js/3.4.1.min.js"></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script> -->
+  </head>
+  <body>
+    <div class="hello">
+      Hello jQuery
+      <!-- <h1>Hello jQuery</h1> -->
+    </div>
+
+    <div class="container">
+      <div class="title">Header Title</div>
+      <p>Some Text</p>
+      <span id="other">Other Contents</span>
+      <div>Footer Title</div>
+    </div>
+
+    <div class="baseContainer">
+      <div class="user">
+        <div>User : Donna</div>
+        <div class="hobbies">
+          <p>Travelling, Sports</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://google.com" style="color: yellowgreen;" custom="customText"
+      >Click Here</a
+    >
+
+    <form>
+      <input type="text" value="Super Cars" />
+      <br />
+      <input type="radio" name="yes" checked />Yes
+    </form>
+
+    <div
+      class="element anotherClass"
+      style="width: 200px; font-size: 30px;"
+      data-name="lenny"
+      data-hobbies="Entertainment, Reading"
+    >
+      Class Div
+    </div>
+
+    <form>
+      <input id="input" type="text" placeholder="Enter Name" />
+      <br />
+      <input id="input1" type="text" placeholder="Car Model" />
+      <br />
+      <select class="target">
+        <option value="Option1">Option 1</option>
+        <option value="Option2" selected>Option 2</option>
+      </select>
+      <br />
+      <br />
+      <input type="checkbox" value="bike" name="vehicle" />My Bike
+      <br />
+      <input type="checkbox" value="car" name="vehicle" />My Ride
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <div
+      class="elementDiv"
+      style="
+        width: 50px;
+        height: 50px;
+        background: darkred;
+        position: relative;
+      "
+    >
+      Sample Div
+    </div>
+    <br />
+    <div class="divElement">
+      Div Element
+    </div>
+    <style>
+      .divElement {
+        width: 56px;
+        height: 50px;
+        background: darkred;
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+    </style>
+    <br />
+    <div class="hide">Hide</div>
+    <div class="fadeIn">Fade In</div>
+    <div class="slideUp">Slide Up</div>
+    <br />
+    <!-- <div class="trigger">Trigger</div>
+    <br /> -->
+    <div class="show">Show</div>
+    <div class="fadeOut">Fade Out</div>
+    <div class="slideDown">Slide Down</div>
+    <br />
+
+    <style>
+      .error {
+        background: crimson;
+      }
+    </style>
+
+    <div
+      class="anotherElement"
+      style="
+        background-color: crimson;
+        width: 200px;
+        font-size: 30px;
+        position: relative;
+        top: 0;
+        left: 0;
+      "
+    >
+      Another Div
+    </div>
+
+    <div class="multiSquares">
+      <div class="square one"></div>
+      <div class="square two"></div>
+      <div class="square three"></div>
+      <div class="square four"></div>
+      <style>
+        .square {
+          width: 100px;
+          height: 100px;
+          background: coral;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+      </style>
+    </div>
+
+    <div class="pContainer">
+      <div>
+        <p>Paragraph Inside A Div</p>
+        <p>Another Paragraph Inside Div</p>
+      </div>
+      <br />
+      <div class="different">
+        <p>Paragraph Inside A Div</p>
+        <p>Another Paragraph Inside Div</p>
+      </div>
+      <br />
+      <div>
+        <p>Paragraph Inside A Div</p>
+        <p>Another Paragraph Inside Div</p>
+      </div>
+      <br />
+      <div class="unchanged">
+        <p>Paragraph Inside A Div</p>
+        <p>Another Paragraph Inside Div</p>
+      </div>
+    </div>
+
+    <div class="first">First Div</div>
+    <div class="second">Second Div</div>
+    <div class="third">Third Div</div>
+    <div class="four">Fourth Div</div>
+
+    <div class="bContainer">
+      <div class="wrapper">
+        <ul class="list">
+          <li>First</li>
+          <li>Second</li>
+          <li>Three</li>
+          <li>Four</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="list">
+      <li>First Element</li>
+      <li>Second Element</li>
+      <li>Third Element</li>
+      <li>Fourth Element</li>
+    </ul>
+    <br />
+
+    <ul class="list">
+      <li>First Element</li>
+      <li>Second Element</li>
+      <li>Third Element</li>
+      <li>Fourth Element</li>
+    </ul>
+
+    <br />
+
+    <ul class="text">
+      <li>Element 01</li>
+      <li>Element 02</li>
+      <li>Element 03</li>
+      <li>Element 04</li>
+    </ul>
+
+    <p>Text Example Excerpt 1</p>
+    <p>Text Example Excerpt 2</p>
+
+    <table
+      style="
+        margin: auto;
+        width: 550px;
+        text-align: center;
+        font-weight: bolder;
+      "
+    >
+      <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+        <th>Industry</th>
+      </tr>
+
+      <tr>
+        <td>Data Warehouse</td>
+        <td>Maria Cappabelli</td>
+        <td>America</td>
+        <td>I.T.</td>
+      </tr>
+
+      <tr>
+        <td>Data Auditors</td>
+        <td>Serene Halsey</td>
+        <td>New Mexico</td>
+        <td>I.T.</td>
+      </tr>
+
+      <tr>
+        <td>Data WareHouse</td>
+        <td>Maria Cappabelli</td>
+        <td>America</td>
+        <td>I.T.</td>
+      </tr>
+
+      <tr>
+        <td>Data Warriors</td>
+        <td>Serene Halsey</td>
+        <td>New Mexico</td>
+        <td>I.T.</td>
+      </tr>
+    </table>
+
+    <form>
+      <input type="text" placeholder="Enter Name" />
+      <br />
+      <input type="email" placeholder="Enter Email" />
+      <br />
+      <p>::NewsLetters::</p>
+      <br />
+      <input type="radio" name="Yes" checked />Yes
+      <br />
+      <input type="radio" name="No" />No
+    </form>
+
+    <!-- <script src="js/3.4.1.min.js"></script> -->
+    <script src="js/main.js"></script>
+    <!-- <script src="js/3.5.3.jquery.js"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script> -->
+  </body>
+</html>

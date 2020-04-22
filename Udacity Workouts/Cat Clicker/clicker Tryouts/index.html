@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CatClicker Premium</title>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="imageList"
+        style="float: left; width: fit-content; margin-right: 80px;"
+      >
+        <ul>
+          <li id="firstCat">
+            <p id="name1">Katty</p>
+            <img src="http://placekitten.com/g/65/65" class="img1" />
+            <div class="count">Count</div>
+          </li>
+          <li>
+            <p class="name">Kitty</p>
+            <img src="http://placekitten.com/g/65/65" class="img2" />
+            <div class="count">Count</div>
+          </li>
+          <li>
+            <p class="name">Catty</p>
+            <img src="http://placekitten.com/g/65/65" class="img3" />
+            <div class="count">Count</div>
+          </li>
+          <li>
+            <p class="name">patty</p>
+            <img src="http://placekitten.com/g/65/65" class="img4" />
+            <div class="count">Count</div>
+          </li>
+          <li>
+            <p class="name">Kutey</p>
+            <img src="http://placekitten.com/g/65/65" class="img5" />
+            <div class="count">Count</div>
+          </li>
+          <li onclick="clickEvent(this)">
+            <p class="name">chaty</p>
+            <img src="http://placekitten.com/g/65/65" class="img6" />
+            <div class="count">Count</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="displayContainer">
+        <img id="expandedImg" style="width: 560px;" />
+      </div>
+
+      <div
+        class="displayArea"
+        style="width: 560px; height: 650px; float: left; background: teal;"
+      >
+        <p class="catName" style="text-align: center;">CAT NAME</p>
+        <img id="imageUrl" src="http://placekitten.com/g/560/560" />
+        <div class="like" style="display: block; text-align: center;">Like</div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

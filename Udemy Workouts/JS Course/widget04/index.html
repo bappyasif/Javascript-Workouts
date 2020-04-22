@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="content_container">
+      <!--First Panel-->
+      <div class="item panel_one" data-panel="0">
+        <div class="wrapper">
+          <h1>Quizzer</h1>
+          <div class="start_quiz">
+            Start Quiz
+          </div>
+        </div>
+      </div>
+
+      <!--Second Panel-->
+      <div class="item panel_two hidden" data-panel="1">
+        <div class="wrapper">
+          <h3>How Do You Prefer Your Beer?</h3>
+          <div class="options">
+            <div>Very Chiled</div>
+            <div>Warm</div>
+            <div>Somewhat Chiled</div>
+            <div>I Don't Drink</div>
+          </div>
+          <div class="next_question" data-next="2">Next Question</div>
+        </div>
+      </div>
+
+      <!--Third Panel-->
+      <div class="item panel_three hidden" data-panel="2">
+        <div class="wrapper">
+          <h3>What Do You Think Of Trump?</h3>
+          <div class="options">
+            <div>Hate It</div>
+            <div>Love It</div>
+            <div>Don't Care</div>
+            <div>Doesn't Matter</div>
+          </div>
+          <div class="next_question" data-next="3">Next Question</div>
+        </div>
+      </div>
+
+      <!--Fourth Panel-->
+      <div class="item panel_four hidden" data-panel="3">
+        <div class="wrapper">
+          <h3>Say Now What Again?</h3>
+          <div class="options">
+            <div>Dare You</div>
+            <div>Double Dare</div>
+            <div>Go Scram</div>
+            <div>What?!</div>
+          </div>
+          <div class="next_question" data-next="4">Next Question</div>
+        </div>
+      </div>
+
+      <!--Fifth Panel-->
+      <div class="item panel_five hidden" data-panel="4">
+        <div class="wrapper">
+          <h3>Which Music Wins Popularity?</h3>
+          <div class="options">
+            <div>Electronic</div>
+            <div>Dub Step</div>
+            <div>House</div>
+            <div>Hip Hop</div>
+          </div>
+          <div class="next_question" data-next="5">Next Question</div>
+        </div>
+      </div>
+
+      <!--Sixth Panel-->
+      <div class="item panel_six hidden" data-panel="5">
+        <div class="wrapper">
+          <h3>Thank You For Paricipating</h3>
+          <br />
+          <br />
+          <div class="options">
+            <div>Results</div>
+          </div>
+          <div class="next_question" data-next="6">See Choices</div>
+        </div>
+      </div>
+
+      <!--Seventh Panel-->
+      <div class="item panel_six hidden" data-panel="6">
+        <div class="wrapper">
+          <h3>Options you Have Chosen</h3>
+          <br />
+          <br />
+          <div class="selections"></div>
+        </div>
+        <div
+          style="
+            margin: auto;
+            width: fit-content;
+            text-align: center;
+            border: dashed 2.2px deepskyblue;
+          "
+        >
+          Hope You Liked It
+        </div>
+        <br />
+        <br />
+        <div
+          style="
+            margin: auto;
+            width: fit-content;
+            text-align: center;
+            border: dotted 2.2px darkturquoise;
+          "
+        >
+          Have A Nice Day
+        </div>
+      </div>
+
+      <div class="error">
+        Please Make A Selection
+      </div>
+
+      <div class="progress">
+        <div class="bar"></div>
+      </div>
+    </div>
+  </body>
+</html>
