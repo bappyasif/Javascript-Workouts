@@ -1,0 +1,79 @@
+/*jQuery Basics Styling Rules*/
+.highlight {
+  color: darkred;
+}
+
+.highlightContainerDiv {
+  background-color: yellowgreen;
+}
+
+.item {
+  margin-left: 10px;
+}
+
+.itemHighlight {
+  color: seagreen;
+}
+
+.box {
+  height: 110px;
+  width: 110px;
+  background-color: lightgreen;
+}
+
+.boxHighlight {
+  background-color: darkred;
+}
+
+.box_button {
+  width: 110px;
+  height: 29px;
+  background-color: lightsalmon;
+  text-align: center;
+  position: relative;
+  top: 56%;
+  transform: translateY(-56%);
+}
+/*Simmple Store Styling Rules*/
+body {
+  background-color: #eee;
+}
+
+#container {
+  background-color: #ffffff;
+  padding: 12px;
+  height: 100%;
+  margin: 12px;
+}
+
+.item {
+  width: 200px;
+  background-color: #dddddd;
+  padding: 8px;
+  float: left;
+  margin: 4px;
+}
+
+.item img {
+  width: 100%;
+}
+
+.item .name {
+  font-size: 29px;
+}
+
+.item .price {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.item .more_info {
+  display: none;
+}
+
+.cart_container {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Clicker</title>
+    <style>
+      .expand_image {
+        height: 650px;
+        width: 560px;
+      }
+      .name_list {
+        font-size: larger;
+        font-weight: bolder;
+      }
+      .cat_images {
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cats_container">
+      <div class="cat_showcase" style="float: right;">
+        <h2>Cat Name : <span class="cat_name"></span></h2>
+        <img src="http://placekitten.com/560/560" alt="" class="expand_image" />
+        <div class="like_container">
+          <button
+            class="like"
+            style="
+              float: right;
+              height: 56px;
+              width: 92px;
+              background: yellowgreen;
+            "
+          >
+            Like
+          </button>
+          <h2 style="float: left;">
+            Click Count : <span class="click_count"></span>
+          </h2>
+        </div>
+      </div>
+      <ul class="cat_list" style="float: left;"></ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

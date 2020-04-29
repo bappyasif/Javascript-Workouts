@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Draggable</title>
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/jquery-ui.theme.css" />
+    <script src="js/draggable.js"></script>
+    <style>
+      .draggable {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        background: tomato;
+      }
+      .draggable_container {
+        width: 290px;
+        height: 290px;
+        background: navy;
+      }
+      .handle {
+        display: inline-block;
+        background: orangered;
+        width: 26px;
+        height: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>jQuery Draggable</h2>
+    <div class="draggable_container">
+      <div class="draggable">
+        <div class="handle"></div>
+        <h4>Drag This</h4>
+      </div>
+      <div class="draggable not_this">
+        <h4>Drag This</h4>
+      </div>
+    </div>
+  </body>
+</html>
