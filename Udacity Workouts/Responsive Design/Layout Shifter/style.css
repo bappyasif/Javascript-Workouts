@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  height: 100px;
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .green {
+    width: 50%;
+    height: 200px;
+  }
+  #container2 {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .green {
+    width: 25%;
+    order: 1;
+    /* height: max-content; */
+  }
+  #container2 {
+    width: 50%;
+  }
+  .coral {
+    width: 25%;
+    order: -1;
+    height: 200px;
+  }
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.aqua {
+  background-color: aqua;
+}
+
+.coral {
+  background-color: coral;
+}

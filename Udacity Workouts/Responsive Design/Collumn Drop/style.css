@@ -1,0 +1,59 @@
+@media screen and (min-width: 470px) {
+  .green {
+    width: 100%;
+    /* order: 0; */
+  }
+
+  .blue {
+    width: 20%;
+    /* order: 1; */
+  }
+
+  .aqua {
+    width: 80%;
+    /* order: 2; */
+  }
+
+  .coral {
+    width: 100%;
+    /* order: 3; */
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .green {
+    width: 100%;
+    /* order: 0; */
+  }
+
+  .blue {
+    width: 25%;
+    /* order: 1; */
+  }
+
+  .aqua {
+    width: 50%;
+    /* order: 2; */
+  }
+
+  .coral {
+    width: 25%;
+    /* order: 3; */
+  }
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.aqua {
+  background-color: aqua;
+}
+
+.coral {
+  background-color: coral;
+}

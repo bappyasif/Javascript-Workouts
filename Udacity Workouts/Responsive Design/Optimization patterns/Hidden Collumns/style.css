@@ -1,0 +1,21 @@
+body {
+  margin: 1em;
+}
+
+/* .longName {
+  display: none;
+}
+
+.inning {
+  display: none;
+} */
+
+@media screen and (max-width: 470px) {
+  .longName {
+    display: none;
+  }
+
+  .inning {
+    display: none;
+  }
+}

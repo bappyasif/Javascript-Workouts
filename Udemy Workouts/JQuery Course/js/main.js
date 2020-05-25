@@ -247,20 +247,33 @@ $(function () {
   $("#container").on("click", ".item_add", function () {
     let id = $(this).parent().data("id");
     console.log(id);
-    $.ajax(" http://localhost:3000/posts", {
-      type: "POST",
+    $.ajax("data/addToCart.json", {
+      type: "GET",
       dataType: "json",
       contentType: "application/json",
-      data: JSON.stringify({ id: id }),
     }).done(function (response) {
-      // console.log(response);
-      if (response.message === "success") {
-        let price = response.price;
-        cart += price;
-        console.log(price);
-        $(".cart_container").text("$" + cart);
-      }
+      let id = $(this).parent().data("id");
+      console.log(id);
+      let price = response.price;
+      cart += price;
+      console.log(price);
+      $(".cart_container").text("$" + cart);
     });
+    // $.ajax(" data/addToCart.json", {
+    //   type: "POST",
+    //   dataType: "json",
+    //   contentType: "application/json",
+    //   // data: JSON.stringify({ id: id }),
+    //   data: { id: id },
+    // }).done(function (response) {
+    //   // console.log(response);
+    //   if (response.message === "success") {
+    //     let price = response.price;
+    //     cart += price;
+    //     console.log(price);
+    //     $(".cart_container").text("$" + cart);
+    //   }
+    // });
 
     // $.ajax("http://localhost:3000/posts", {
     //   type: "POST",
@@ -270,6 +283,37 @@ $(function () {
     // }).done(function (response) {
     //   console.log(response.message);
     // });
+  });
+
+  // Newsletter Checkbox
+  $("#newsletter_checkbox").on("change", function () {
+    if ($(this).is(":checked")) {
+      // console.log("Aye");
+      // $("#newsletter_frequency").show();
+      $("#newsletter_frequency").fadeIn();
+    } else {
+      // console.log("Nay");
+      // $("#newsletter_frequency").hide();
+      $("#newsletter_frequency").fadeOut();
+    }
+  });
+  $("#newsletter_checkbox").trigger("change");
+
+  // Form Submit
+  // $("#submit_cart").on("click", function (event) {
+  //   event.preventDefault();
+  // });
+  $("#cart_form").on("submit", function (event) {
+    let data = { form: $(this).serialize(), price: cart };
+    console.log(data.form);
+    event.preventDefault();
+    $.ajax($(this).attr("action"), {
+      type: "GET",
+      data: data,
+    }).done(function (response) {
+      console.log(data.form, response.message);
+      $("#feedback_message").text(response.message);
+    });
   });
 });
 

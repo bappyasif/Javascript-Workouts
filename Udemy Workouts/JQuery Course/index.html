@@ -3,6 +3,7 @@
     <script src="js/3.4.1.min.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <title>Simple Store Using jQuery</title>
   </head>
   <body>
     <!-- <div class="admin_container">
@@ -10,7 +11,28 @@
       <button id="button_create_item">Add Item</button>
     </div> -->
     <div class="simple_store">
-      <div class="cart_container"></div>
+      <div class="cart_container">$0</div>
+      <div id="user_data">
+        <form action="data/cartSubmit.json" id="cart_form" method="GET">
+          <label for="Name">Name</label>
+          <input type="text" />
+          <br />
+          <label for="Email">Email</label>
+          <input type="email" />
+          <br />
+          <label for="NewsLetter">NewsLetter?!</label>
+          <input type="checkbox" id="newsletter_checkbox" checked />
+          <br />
+          <select name="frequency" id="newsletter_frequency">
+            <option> -- </option>
+            <option selected> Weekly </option>
+            <option> Monthly </option>
+          </select>
+          <br />
+          <button id="submit_cart">Submit</button>
+        </form>
+        <div id="feedback_message"></div>
+      </div>
       <div id="container">
         <!-- <div class="item">
           <div class="name">Healthy Living</div>

@@ -5,28 +5,32 @@
       "name": "Healthy Living",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, odio. Dicta cupiditate provident impedit soluta ratione atque nostrum necessitatibus, pariatur in deleniti nam, doloribus, omnis fugit reiciendis modi possimus tempore?",
       "price": 499,
-      "More Info": "Lorem ipsum dolor sit amet"
+      "More Info": "Lorem ipsum dolor sit amet",
+      "src": "/assets/pics/03.jpg"
     },
     {
       "id": 1100,
       "name": "Staying Healthy",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, odio. Dicta cupiditate provident impedit soluta ratione atque nostrum necessitatibus, pariatur in deleniti nam, doloribus, omnis fugit reiciendis modi possimus tempore?",
       "price": 499,
-      "More Info": "Lorem ipsum dolor sit amet"
+      "More Info": "Lorem ipsum dolor sit amet",
+      "src": "/assets/pics/04.jpg"
     },
     {
       "id": 2009,
       "name": "Living Healthy",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, odio. Dicta cupiditate provident impedit soluta ratione atque nostrum necessitatibus, pariatur in deleniti nam, doloribus, omnis fugit reiciendis modi possimus tempore?",
       "price": 499,
-      "More Info": "Lorem ipsum dolor sit amet"
+      "More Info": "Lorem ipsum dolor sit amet",
+      "src": "/assets/pics/05.jpg"
     },
     {
       "id": 2000,
       "name": "Healthy Staying",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, odio. Dicta cupiditate provident impedit soluta ratione atque nostrum necessitatibus, pariatur in deleniti nam, doloribus, omnis fugit reiciendis modi possimus tempore?",
       "price": 499,
-      "More Info": "Lorem ipsum dolor sit amet"
+      "More Info": "Lorem ipsum dolor sit amet",
+      "src": "/assets/pics/06.jpg"
     }
   ]
 }

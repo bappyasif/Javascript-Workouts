@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/3.4.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <title>A Simple Web Store</title>
+    <link rel="stylesheet" href="css/appStyle.css" />
+  </head>
+  <body>
+    <h4
+      style="
+        text-align: center;
+        border: 2.2px dotted blanchedalmond;
+        width: fit-content;
+        margin: auto;
+      "
+    >
+      A Simple Web Store
+    </h4>
+    <div class="web_store">
+      <div class="cart_container">::$0</div>
+      <div class="user_data">
+        <form action="" id="cart_form">
+          <label for="Name" style="margin-right: 08px;">Name</label>
+          <input required type="text" />
+          <br />
+          <label for="E-Mail" style="margin-right: 02px;">E-Mail</label>
+          <input required type="email" />
+          <br />
+          <label for="Newsletter">Newsletter?</label>
+          <input type="checkbox" id="newsletter_checkbox" />
+          <br />
+          <select name="Newsletter Frequency" id="newsletter_frequency">
+            <option>--</option>
+            <option selected>Weekly</option>
+            <option>Monthly</option>
+          </select>
+          <br />
+          <button type="submit" id="submit_cart">Submit</button>
+          <div id="feedback_message"></div>
+        </form>
+      </div>
+      <div class="item_container">
+        <!-- <div class="store_item">
+          <div class="item_name">Listing Title</div>
+          <img src="assets/pics/05.jpg" />
+          <div class="item_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+            cumque neque inventore molestias aspernatur aliquam magni corrupti
+            alias excepturi optio, repellendus sint quo architecto dolores, sunt
+            quam, assumenda quae labore?
+          </div>
+          <div class="item_price">
+            499
+          </div>
+          <button class="item_add">Add To Cart</button>
+          <button class="item_remove">Remove</button>
+          <br />
+          <a href="#" class="info_link">More Info</a>
+          <div class="more_info">Lorem ipsum dolor sit amet</div>
+        </div> -->
+        <br style="clear: left;" />
+      </div>
+    </div>
+    <!-- <script src="js/3.4.1.min.js"></script>
+    <script src="js/app.js"></script> -->
+  </body>
+</html>
