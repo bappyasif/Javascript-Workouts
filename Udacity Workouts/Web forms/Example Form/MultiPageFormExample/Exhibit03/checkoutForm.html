@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz - One Big, Ugly Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/css/foundation.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <span class="company-name">🂡 Cam's Company 🂡</span>
+      <span class="company-page">Checkout Page</span>
+    </header>
+    <section class="progress-bar">
+      Seems like this could be a good place for a progress bar...
+      <!-- <div class="stages">
+        <label for="one"></label>
+        <label for="two"></label>
+        <label for="three"></label>
+        <label for="four"></label>
+      </div> -->
+
+      <!-- <input id="one" type="radio" name="stage" checked="checked" />
+      <input id="two" type="radio" name="stage" />
+      <input id="three" type="radio" name="stage" />
+      <input id="four" type="radio" name="stage" /> -->
+    </section>
+    <div class="wrapper">
+      <section class="form">
+        <!-- <div class="stages">
+          <label for="one"></label>
+          <label for="two"></label>
+          <label for="three"></label>
+          <label for="four"></label>
+        </div>
+
+        <input
+          class="radioSelector"
+          id="one"
+          type="radio"
+          name="stage"
+          checked
+        /> -->
+        <input
+          class="radioSelector"
+          id="one"
+          type="radio"
+          name="stage"
+          checked
+        />
+        <input id="two" type="radio" name="stage" />
+        <input id="three" type="radio" name="stage" />
+        <input id="four" type="radio" name="stage" />
+
+        <fieldset class="active">
+          <legend>Your Name and Demographic Information</legend>
+          <label for="fname"
+            >First Name
+            <input type="text" id="fname" required autocomplete="given-name" />
+          </label>
+
+          <label for="lname"
+            >Last Name
+            <input type="text" id="lname" autocomplete="family-name" />
+          </label>
+
+          <label for="em_adr"
+            >Email Address
+            <input type="email" id="em_adr" required />
+          </label>
+
+          <label
+            >Put me on the mailing list?
+            <input class="inline" type="checkbox" />
+          </label>
+        </fieldset>
+
+        <!-- <h3>Your Name and Demographic Information</h3> -->
+        <!-- <label for="fname"
+          >First Name
+          <input type="text" id="fname" required autocomplete="given-name" />
+        </label>
+
+        <label for="lname"
+          >Last Name
+          <input type="text" id="lname" autocomplete="family-name" />
+        </label>
+
+        <label for="em_adr"
+          >Email Address
+          <input type="email" id="em_adr" required />
+        </label>
+
+        <label
+          >Put me on the mailing list?
+          <input class="inline" type="checkbox" />
+        </label> -->
+
+        <fieldset>
+          <legend>Your Shipping Address</legend>
+          <label for="adr1"
+            >Address Line 1
+            <input
+              type="text"
+              id="adr1"
+              required
+              autocomplete="address-level1"
+            />
+          </label>
+          <label for="adr2"
+            >Address Line 2
+            <input
+              type="text"
+              id="adr2"
+              required
+              autocomplete="address-level2"
+            />
+          </label>
+          <label for="city_name"
+            >City
+            <input type="text" id="city_name" required />
+          </label>
+          <label
+            >State/Province
+            <input type="text" />
+          </label>
+          <label for="post_code"
+            >Postal Code
+            <input type="text" id="post_code" required />
+          </label>
+          <label for="country_name"
+            >Country
+            <input
+              type="text"
+              id="country_name"
+              required
+              autocomplete="country-name"
+            />
+          </label>
+        </fieldset>
+        <!-- <h3>Your Shipping Address</h3>
+        <label for="adr1"
+          >Address Line 1
+          <input type="text" id="adr1" required autocomplete="address-level1" />
+        </label>
+        <label for="adr2"
+          >Address Line 2
+          <input type="text" id="adr2" required autocomplete="address-level2" />
+        </label>
+        <label for="city_name"
+          >City
+          <input type="text" id="city_name" required />
+        </label>
+        <label
+          >State/Province
+          <input type="text" />
+        </label>
+        <label for="post_code"
+          >Postal Code
+          <input type="text" id="post_code" required />
+        </label>
+        <label for="country_name"
+          >Country
+          <input
+            type="text"
+            id="country_name"
+            required
+            autocomplete="country-name"
+          />
+        </label> -->
+
+        <fieldset>
+          <legend>Your Credit Card Information</legend>
+          <div class="cc-warning">
+            <em>Note: don't enter any actual credit card info!</em>
+          </div>
+          <label
+            >Credit Card Number
+            <input type="text" />
+          </label>
+          <label for="cc_types">Credit Card Type </label>
+          <input list="cc_names" id="cc_types" required />
+          <datalist id="cc_names">
+            <option value="Visa"> </option>
+            <option value="American Express"> </option>
+            <option value="Mastercard"> </option>
+            <option value="Discover"> </option>
+          </datalist>
+          <label
+            >Expiration Date <input type="date" placeholder="MM/DD/YYYY" />
+          </label>
+          <label
+            >CVV
+            <input type="number" />
+          </label>
+        </fieldset>
+        <!-- <h3>Your Credit Card Information</h3>
+        <div class="cc-warning">
+          <em>Note: don't enter any actual credit card info!</em>
+        </div>
+        <label
+          >Credit Card Number
+          <input type="text" />
+        </label>
+        <label for="cc_types">Credit Card Type </label>
+        <input list="cc_names" id="cc_types" required />
+        <datalist id="cc_names">
+          <option value="Visa"> </option>
+          <option value="American Express"> </option>
+          <option value="Mastercard"> </option>
+          <option value="Discover"> </option>
+        </datalist>
+        <label
+          >Expiration Date <input type="date" placeholder="MM/DD/YYYY" />
+        </label>
+        <label
+          >CVV
+          <input type="number" />
+        </label> -->
+
+        <fieldset>
+          <legend>Your Billing Address</legend>
+          <label for="adr_1"
+            >Address Line 1
+            <input
+              type="text"
+              id="adr_1"
+              required
+              autocomplete="address-level1"
+            />
+          </label>
+          <label for="adr_2"
+            >Address Line 2
+            <input
+              type="text"
+              id="adr_2"
+              required
+              autocomplete="address-level2"
+            />
+          </label>
+          <label for="cityName"
+            >City
+            <input type="text" id="cityName" required />
+          </label>
+          <label
+            >State/Province
+            <input type="text" />
+          </label>
+          <label for="postCode"
+            >Postal Code
+            <input type="text" id="postCode" required />
+          </label>
+          <label for="countryName"
+            >Country
+            <input
+              type="text"
+              id="countryName"
+              required
+              autocomplete="country-name"
+            />
+          </label>
+        </fieldset>
+        <!-- <h3>Your Billing Address</h3>
+        <label for="adr1"
+          >Address Line 1
+          <input type="text" id="adr1" required autocomplete="address-level1" />
+        </label>
+        <label for="adr2"
+          >Address Line 2
+          <input type="text" id="adr2" required autocomplete="address-level2" />
+        </label>
+        <label for="city_name"
+          >City
+          <input type="text" id="city_name" required />
+        </label>
+        <label
+          >State/Province
+          <input type="text" />
+        </label>
+        <label for="post_code"
+          >Postal Code
+          <input type="text" id="post_code" required />
+        </label>
+        <label for="country_name"
+          >Country
+          <input
+            type="text"
+            id="country_name"
+            required
+            autocomplete="country-name"
+          />
+        </label> -->
+        <div class="buttons">
+          <a class="button prev left">Prev</a>
+          <a class="button next right">Next</a>
+          <!-- <button class="submit">Submit</button> -->
+        </div>
+      </section>
+    </div>
+
+    <section class="order-review">
+      <h3>Your Order</h3>
+      <table class="your-order">
+        <tr class="headings">
+          <td>Product</td>
+          <td>Quantity</td>
+          <td>Price</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td>Game Console 2015</td>
+          <td>1</td>
+          <td>$500.00</td>
+          <td>$500.00</td>
+        </tr>
+        <tr>
+          <td>Platformer Bros 3D</td>
+          <td>1</td>
+          <td>$50.00</td>
+          <td>$50.00</td>
+        </tr>
+        <tr class="total">
+          <td>Total</td>
+          <td>$550.00</td>
+        </tr>
+      </table>
+      <label class="check-correct"
+        >Is your order correct?
+        <input type="checkbox" />
+      </label>
+      <input id="submit" type="submit" />
+    </section>
+    <script>
+      var submit = document.querySelector("#submit");
+      submit.onclick = function () {
+        alert(
+          "All of your information was valid, right? I'll just go ahead and assume that it is ;)\n\nThanks for your submission!"
+        );
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

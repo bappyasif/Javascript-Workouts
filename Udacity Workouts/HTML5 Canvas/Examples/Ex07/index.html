@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working With HTML5 ImageData</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="560px" height="650px"></canvas>
+    <canvas id="canvas2" width="560px" height="650px"></canvas>
+
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      let imageData = new ImageData(canvas.width, canvas.height);
+      console.log(imageData.data);
+      let data = imageData.data;
+
+      let paintGreen = (data) => {
+        let pixelNumbers = data.length / 4; // r,g,b,a
+        // try other looping intervals
+        for (let i = 0; i < pixelNumbers; i += 10) {
+          data[i + 0] = 0;
+          data[i + 1] = 190;
+          data[i + 2] = 0;
+          data[i + 3] = 255;
+          //   rgba(77, 175, 124, 1);
+        }
+        ctx.putImageData(imageData, 20, 20);
+      };
+
+      paintGreen(data);
+
+      canvas = document.getElementById("canvas2");
+      ctx = canvas.getContext("2d");
+
+      //   imageData = ctx.getImageData(0, 0, 400, 400);
+      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+      //   data = imageData.data;
+      console.log(imageData);
+
+      paintGreen = (imageData) => {
+        let pixelNumbers = imageData.data.length / 4;
+        for (let i = 0; i < pixelNumbers; i++) {
+          if (i % 10 === 0) {
+            imageData.data[i * 4 + 1] = 255;
+            // console.log("....");
+            imageData.data[i * 4 + 3] = 255;
+          }
+        }
+        ctx.putImageData(imageData, 0, 0);
+      };
+
+      paintGreen(imageData);
+    </script>
+  </body>
+</html>

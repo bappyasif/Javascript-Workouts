@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working With HTML5 ImageData</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="470px" height="560px"></canvas>
+    <img
+      style="display: none;"
+      id="img_src"
+      src="picture.jpg"
+      width="560px"
+      height="650px"
+    />
+    <!-- <img id="img_src" width="560px" height="650px" /> -->
+
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      //   let imageData = new ImageData(canvas.width, canvas.height);
+      // let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+      let image = document.getElementById("img_src");
+      // let imageData = ctx.drawImage(image, 10, 10, 180, 120);
+      let imageData = ctx.getImageData(0, 0, image.width, image.height);
+
+      let data = imageData.data;
+      // console.log(data);
+
+      let grayScale = (data) => {
+        for (let i = 0; i < data.length; i += 4) {
+          // avg method
+          let gray = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = gray;
+          // console.log(data[i]);
+          data[i + 1] = gray;
+          data[i + 2] = gray;
+        }
+        ctx.putImageData(imageData, 0, 0);
+      };
+      grayScale(data);
+    </script>
+  </body>
+</html>

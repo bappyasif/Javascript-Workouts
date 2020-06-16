@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Multi Page Web Form</title>
+    <style>
+      .stages label {
+        background: #ffffff;
+        border: solid 5px #c0c0c0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0;
+        font-weight: 700;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+        width: 50px;
+        z-index: 1;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .panels div {
+        display: none;
+      }
+      #one:checked ~ .panels [data-panel="one"],
+      #two:checked ~ .panels [data-panel="two"],
+      #three:checked ~ .panels [data-panel="three"],
+      #four:checked ~ .panels [data-panel="four"],
+      #five:checked ~ .panels [data-panel="five"],
+      #six:checked ~ .panels [data-panel="six"] {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <h2>Multi Page Form (Pure CSS)</h2>
+      <p>Divide long forms, enable users to flick back and forward.</p>
+      <p>
+        Use JS to validate form at the end of the stage and highlight tab(s)
+        that contain(s) error.
+      </p>
+
+      <input id="one" type="radio" name="stage" checked="checked" />
+      <input id="two" type="radio" name="stage" />
+      <input id="three" type="radio" name="stage" />
+      <input id="four" type="radio" name="stage" />
+      <input id="five" type="radio" name="stage" />
+      <input id="six" type="radio" name="stage" />
+
+      <div class="stages">
+        <label for="one">1</label>
+        <label for="two">2</label>
+        <label for="three">3</label>
+        <label for="four">4</label>
+        <label for="five">5</label>
+        <label for="six">6</label>
+      </div>
+
+      <span class="progress"><span></span></span>
+
+      <div class="panels">
+        <div data-panel="one">
+          <h4>Stage 1</h4>
+          <input type="text" placeholder="First Name" />
+        </div>
+        <div data-panel="two">
+          <h4>Stage 2</h4>
+          <input type="text" placeholder="Last Name" />
+        </div>
+        <div data-panel="three">
+          <h4>Stage 3</h4>
+          <input type="text" placeholder="Address" />
+        </div>
+        <div data-panel="four">
+          <h4>Stage 4</h4>
+          <input type="text" placeholder="Email" />
+        </div>
+        <div data-panel="five">
+          <h4>Stage 5</h4>
+          <input type="text" placeholder="Phone Number" />
+        </div>
+        <div data-panel="six">
+          <h4>Stage 6</h4>
+          <input type="text" placeholder="Comment" />
+        </div>
+      </div>
+
+      <button>Next</button>
+    </div>
+
+    <script>
+      $(".form .stages label").click(function () {
+        var radioButtons = $(".form input:radio");
+        console.log(radioButtons);
+        var selectedIndex = radioButtons.index(radioButtons.filter(":checked"));
+        selectedIndex = selectedIndex + 1;
+      });
+      $(".form button").click(function () {
+        var radioButtons = $(".form input:radio");
+        var selectedIndex = radioButtons.index(radioButtons.filter(":checked"));
+        console.log(selectedIndex);
+
+        selectedIndex = selectedIndex + 2;
+        console.log(selectedIndex);
+
+        $('.form input[type="radio"]:nth-of-type(' + selectedIndex + ")").prop(
+          "checked",
+          true
+        );
+
+        if (selectedIndex == 6) {
+          $("button").html("Submit");
+        }
+      });
+    </script>
+  </body>
+</html>

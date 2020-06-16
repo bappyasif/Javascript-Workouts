@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Page Example Form</title>
+    <style>
+      body {
+        font: 10pt sans-serif;
+      }
+      .page {
+        position: absolute;
+        top: 10;
+        left: 100;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div id="page1" class="page" style="visibility: visible;">
+        <p>Question 1 <input type="text" id="T1" size="20" /></p>
+
+        <p>Question 2 <input type="text" id="T2" size="20" /></p>
+
+        <p>Question 3 <input type="text" id="T3" size="20" /></p>
+
+        <p>Question 4 <input type="text" id="T4" size="20" /></p>
+
+        <p>Question 5 <input type="text" id="T5" size="20" /></p>
+
+        <p>
+          <input
+            type="button"
+            id="C1"
+            value="Continue"
+            onClick="showLayer('page2')"
+          />
+        </p>
+      </div>
+      <div id="page2" class="page">
+        <p>Question 6 <input type="text" id="T6" size="20" /></p>
+
+        <p>Question 7 <input type="text" id="T7" size="20" /></p>
+
+        <p>Question 8 <input type="text" id="T8" size="20" /></p>
+
+        <p>Question 9 <input type="text" id="T9" size="20" /></p>
+
+        <p>Question 10 <input type="text" id="T10" size="20" /></p>
+
+        <p>
+          <input
+            type="button"
+            id="B1"
+            value="Go Back"
+            onClick="showLayer('page1')"
+          />
+          <input
+            type="button"
+            id="C2"
+            value="Continue"
+            onClick="showLayer('page3')"
+          />
+        </p>
+      </div>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>

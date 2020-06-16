@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Using Transformation</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
+    <canvas id="canvas4"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      //   ctx.save();
+      ctx.fillStyle = "blue";
+      ctx.translate(200, 92);
+      ctx.fillRect(0, 0, 20, 20);
+      //   ctx.restore();
+
+      ctx.rotate(Math.PI / 4);
+      ctx.translate(-50, -20);
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, 0, 20, 20);
+
+      canvas = document.getElementById("canvas2");
+      ctx = canvas.getContext("2d");
+
+      ctx.save();
+      ctx.fillStyle = "blue";
+      ctx.translate(10, 10);
+      ctx.fillRect(0, 0, 10, 10);
+      ctx.restore();
+
+      ctx.rotate(Math.PI / 4);
+      ctx.translate(50, 0);
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, 0, 10, 10);
+
+      canvas = document.getElementById("canvas3");
+      ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "teal";
+      ctx.fillRect(20, 20, 50, 110);
+      ctx.save();
+
+      ctx.fillStyle = "blue";
+      ctx.fillRect(0, 0, 50, 110);
+      ctx.save();
+
+      ctx.restore();
+      ctx.beginPath();
+      // The arc is given an x-coordinate of 119, a y-coordinate of 75, and a radius of 29. To make a full circle,
+      // the arc begins at an angle of 0 radians (0°), and ends at an angle of 2π radians (360°).
+      ctx.arc(119, 75, 29, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+      ctx.beginPath();
+      ctx.arc(146, 75, 29, 0, 2 * Math.PI);
+      ctx.closePath();
+      ctx.fill();
+
+      canvas = document.getElementById("canvas4");
+      ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "blue";
+      ctx.translate(10, 10);
+      ctx.fillRect(0, 0, 10, 10);
+      ctx.save();
+      //   ctx.fillStyle = "blue";
+      //   ctx.translate(10, 10);
+      //   ctx.fillRect(0, 0, 10, 10);
+
+      //   ctx.restore();
+      ctx.rotate(Math.PI / 4);
+      ctx.translate(50, 0);
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, 0, 10, 10);
+      ctx.save();
+
+      ctx.restore();
+      ctx.translate(65, 0);
+      ctx.fillRect(0, 0, 10, 10);
+      ctx.fill();
+
+      ctx.restore();
+      ctx.translate(92, 92);
+      ctx.fillRect(0, 11, 10, 10);
+      ctx.fill();
+    </script>
+  </body>
+</html>
+
+<!--
+    The canvas state can store:
+
+The current transformation matrix (rotation, scaling, translation)
+strokeStyle
+fillStyle
+font
+globalAlpha
+lineWidth
+lineCap
+lineJoin
+miterLimit
+shadowOffsetX
+shadowOffsetY
+shadowBlur
+shadowColor
+globalCompositeOperation
+textAlign
+textBaseline
+The current clipping region
+
+-->

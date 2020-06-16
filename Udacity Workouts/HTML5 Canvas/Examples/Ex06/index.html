@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Using Fonts</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      ctx.font = "36pt Impact";
+      ctx.strokeStyle = "black";
+      ctx.fillStyle = "white";
+      ctx.lineWidth = 3;
+
+      //   ctx.textAlign = "center";
+
+      //   ctx.shadowBlur = 3;
+
+      ctx.strokeText("CANVAS MEMES", 2, 50);
+      ctx.fillText("CANVAS MEMES", 2, 50);
+
+      canvas = document.getElementById("canvas2");
+      ctx = canvas.getContext("2d");
+
+      ctx.font = "36pt Impact";
+      ctx.strokeStyle = "black";
+      ctx.fillStyle = "white";
+      ctx.lineWidth = 9;
+
+      ctx.textAlign = "center";
+
+      ctx.strokeText("CANVAS MEMES", canvas.width / 2, 50);
+      ctx.fillText("CANVAS MEMES", canvas.width / 2, 50);
+    </script>
+  </body>
+</html>

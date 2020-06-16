@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Using Fonts</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+      var can = document.getElementById("canvas");
+      var ctx = can.getContext("2d");
+
+      ctx.fillStyle = "gray";
+      ctx.fillRect(0, 0, 500, 500);
+
+      function drawStroked(text, x, y) {
+        ctx.font = "80px Sans-serif";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 8;
+        ctx.lineJoin = "miter"; //Experiment with "bevel" & "round" for the effect you want!
+        ctx.miterLimit = 2;
+        ctx.strokeText(text, x, y);
+        ctx.fillStyle = "white";
+        ctx.fillText(text, x, y);
+      }
+
+      drawStroked("MVW", 50, 150);
+    </script>
+  </body>
+</html>

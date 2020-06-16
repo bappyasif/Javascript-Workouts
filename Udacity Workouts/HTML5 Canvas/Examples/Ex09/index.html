@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Video ColorInversion</title>
+  </head>
+  <body>
+    <!-- <canvas id="canvas"></canvas>
+    <video id="video" controls loop>
+      <source src="/Examples/Ex09/train.mpg" type="video/mp4" />
+    </video> -->
+
+    <video
+      id="video"
+      src="http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv"
+      controls
+      loop
+    ></video>
+    <canvas id="canvas"></canvas>
+
+    <script>
+      let canvas = document.querySelector("canvas");
+      let ctx = canvas.getContext("2d");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let video = document.querySelector("video");
+        let c = document.querySelector("#canvas");
+        let ctx = c.getContext("2d");
+        video.addEventListener("loadedmetadata", function () {
+          c.height = this.videoHeight;
+          c.width = this.videoWidth;
+        });
+        let draw = () => {
+          ctx.drawImage(video, 0, 0);
+          //   c.getContext("2d").drawImage(video, 0, 0);
+        };
+
+        video.addEventListener("play", function () {
+          if (video.paused || video.ended) {
+            draw();
+          }
+        });
+      });
+
+      //   let canvas = document.querySelector("canvas");
+      //   let ctx = canvas.getContext("2d");
+
+      //   document.addEventListener("DOMContentLoaded", function () {
+      //     let video = document.querySelector("video");
+      //     video.addEventListener("loadedmetadata", function () {
+      //       canvas.height = this.videoHeight;
+      //       canvas.width = this.videoWidth;
+      //     });
+      //     let draw = () => {
+      //       ctx.drawImage(video, 0, 0);
+      //       requestAnimationFrame(draw);
+      //     };
+
+      //     video.addEventListener("play", function () {
+      //       if (video.paused || video.ended) {
+      //         draw();
+      //       }
+      //     });
+      //   });
+    </script>
+  </body>
+</html>

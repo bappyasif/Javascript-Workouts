@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Meet-Up Event Planner</title>
+  </head>
+  <body>
+    <header>
+      <h4>Planning An Event Together</h4>
+    </header>
+    <fieldset class="active">
+      <legend>
+        <h4>Signup First</h4>
+      </legend>
+      <section class="form">
+        <label for="user-name"
+          >User Name
+          <input
+            type="text"
+            id="user-name"
+            placeholder="What would you call yourself"
+            required
+          />
+        </label>
+        <label for="e-mail"
+          >Email Address
+          <input
+            type="email"
+            id="e-mail"
+            placeholder="Where do we send event details?"
+            required
+          />
+        </label>
+        <label for="user-password"
+          >User Password
+          <input
+            type="password"
+            id="user-password"
+            placeholder="Provide an informative password"
+            required
+          />
+        </label>
+        <label for="job-title"
+          >User Occupation
+          <input
+            type="text"
+            id="job-title"
+            placeholder="What do you do?"
+            required
+          />
+        </label>
+        <label for="next-form"
+          >Event Form
+          <input type="submit" id="next-form" value="NEXT" />
+        </label>
+        <form></form>
+        <!-- <button id="next">Next</button> -->
+      </section>
+    </fieldset>
+    <fieldset>
+      <legend><h4>What Event Do You Have In Mind??</h4></legend>
+      <section class="form">
+        <label for="event-name"
+          >Event Name
+          <input
+            type="text"
+            id="event-name"
+            placeholder="what would you name your event??"
+            required
+          />
+        </label>
+        <label for="event-kind"
+          >Event Name
+          <input
+            type="text"
+            id="event-kind"
+            placeholder="name your event kind??"
+            required
+          />
+        </label>
+        <label for="event-place"
+          >Event Venue
+          <input
+            type="text"
+            id="event-place"
+            placeholder="where are you planning your event??"
+            required
+          />
+        </label>
+        <label for="event-host"
+          >Host Revealed
+          <input
+            type="text"
+            id="event-host"
+            placeholder="Who's inviting??"
+            required
+          />
+        </label>
+        <label for="event-starts"
+          >Event Begins
+          <input
+            type="datetime-local"
+            id="event-starts"
+            required
+            value="2020-01-01T10:10:59"
+          />
+        </label>
+        <label for="event-ends"
+          >Event Begins
+          <input
+            type="datetime-local"
+            id="event-ends"
+            required
+            value="2020-01-01T10:10:59"
+          />
+        </label>
+        <label for="event-shoutout"
+          >Please Know
+          <input
+            id="event-shoutout"
+            autocapitalize="on"
+            type="text"
+            maxlength="110"
+          />
+        </label>
+        <label for="event-guests"
+          >Who's Attending
+          <input id="event-guests" required />
+        </label>
+        <label for="form-submit"
+          >Submit Your Event Details
+          <input
+            type="submit"
+            id="form-submit"
+            value="Create Event"
+            name="submit"
+          />
+        </label>
+      </section>
+      <form></form>
+    </fieldset>
+    <fieldset>
+      <section>
+        <div class="form-output"></div>
+      </section>
+    </fieldset>
+    <script src="index.js"></script>
+  </body>
+</html>

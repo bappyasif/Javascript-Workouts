@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas HTML5</title>
+  </head>
+  <body>
+    <!-- <canvas id="canvas" width="200" height="200"></canvas> -->
+    <canvas id="canvas"></canvas>
+    <!--use http-server npm package to make it work-->
+    <!-- <div style="display: none;">
+      <img
+        id="source"
+        src="https://unsplash.com/photos/VfwwaXyg63Y"
+        width="300"
+        height="227"
+      />
+    </div> -->
+    <div style="display: none;">
+      <img
+        id="source"
+        src="https://mdn.mozillademos.org/files/5397/rhino.jpg"
+        width="300"
+        height="227"
+      />
+    </div>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let image = document.getElementById("source");
+      image.addEventListener("load", (ev) => {
+        ctx.drawImage(image, 32, 72, 104, 124, 21, 20, 89, 104);
+        // ctx.drawImage(
+        //   image,
+        //   32,
+        //   72,
+        //   canvas.width,
+        //   canvas.height,
+        //   21,
+        //   20,
+        //   110,
+        //   200
+        // );
+      });
+    </script>
+  </body>
+</html>

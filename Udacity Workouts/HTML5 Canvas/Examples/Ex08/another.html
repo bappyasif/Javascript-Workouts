@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Conlor Inversion</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      canvas.width = 960;
+      canvas.height = 540;
+
+      let imageObject = new Image();
+      imageObject.onload = () => {
+        ctx.drawImage(imageObject, 0, 0, canvas.width, canvas.height);
+        // ctx.drawImage(imageObject, 0, 0);
+        invertingColor();
+        colorInversion();
+      };
+      imageObject.src = "picture.jpg";
+
+      let invertingColor = () => {
+        let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixels = imageData.data;
+
+        for (let i = 0; i < pixels.length; i += 4) {
+          pixels[i] = 255 - pixels[i];
+          pixels[i + 1] = 255 - pixels[i + 1];
+          pixels[i + 2] = 255 - pixels[i + 2];
+          // pixels[i+3] = 255 - pixels[i+3];
+        }
+        ctx.putImageData(imageData, 0, 0);
+      };
+
+      let colorInversion = () => {
+        let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixelsLength = imageData.data.length / 4;
+
+        for (let i = 0; i < pixelsLength; i++) {
+          imageData.data[i * 4 + 0] = 255 - imageData.data[i * 4 + 0];
+          imageData.data[i * 4 + 1] = 255 - imageData.data[i * 4 + 1];
+          imageData.data[i * 4 + 2] = 255 - imageData.data[i * 4 + 2];
+          // imageData.data[i * 4 + 3] = 255 - imageData.data[i*4+3];
+        }
+        ctx.putImageData(imageData, 0, 0);
+      };
+    </script>
+  </body>
+</html>

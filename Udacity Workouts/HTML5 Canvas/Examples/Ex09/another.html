@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas Animation Example</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      let canvas, ctx;
+
+      let init = () => {
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+      };
+
+      let animate = () => {
+        requestAnimationFrame(animate);
+        draw();
+        drawAnother();
+      };
+
+      let draw = () => {
+        let time = new Date().getTime() * 0.002;
+        let x = Math.sin(time) * 96 + 38;
+        let y = Math.cos(time * 0.9) * 96 + 38;
+        // console.log(x, y);
+
+        ctx.fillStyle = "rgb(245, 245, 245)";
+        ctx.fillRect(0, 0, 255, 255);
+        ctx.fillStyle = "rgb(255, 0, 0)";
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 4, true);
+        ctx.closePath();
+        ctx.fill();
+      };
+
+      let drawAnother = () => {
+        let time = new Date().getTime() * 0.002;
+        let x = Math.sin(time) * 96 + 38;
+        let y = Math.cos(time * 0.9) * 96 + 38;
+
+        ctx.fillStyle = "rgb(0, 0, 255)";
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, Math.PI / 4, true);
+        ctx.closePath();
+        ctx.fill();
+      };
+
+      init();
+      animate();
+      //   requestAnimationFrame(draw);
+    </script>
+  </body>
+</html>

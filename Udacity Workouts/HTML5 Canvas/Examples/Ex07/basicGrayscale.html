@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Greyscale</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <img
+      id="img_src"
+      src="picture.jpg"
+      style="width: 560px; height: 650px; filter: grayscale(1);"
+    />
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let imageObject = document.getElementById("img_src");
+      //   ctx.filter = "greyscale(50)";
+      ctx.drawImage(imageObject, 10, 10, imageObject.width, imageObject.height);
+    </script>
+  </body>
+</html>

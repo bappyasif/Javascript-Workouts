@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
+    <canvas id="canvas4"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(50, 50, 200, 200);
+      //   ctx.fillStyle = "blue";
+      ctx.beginPath();
+
+      ctx.fillStyle = "green";
+      ctx.moveTo(75, 75);
+      ctx.fillRect(92, 75, 25, 25);
+      ctx.beginPath();
+
+      ctx.fillStyle = "green";
+      ctx.moveTo(125, 75);
+      ctx.fillRect(183, 75, 25, 25);
+      ctx.beginPath();
+
+      ctx.beginPath();
+      ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(200, 75, 50, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(146, 110, 38, 0, Math.PI);
+      ctx.stroke();
+
+      canvas = document.getElementById("canvas2");
+      ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "blue";
+      // ctx.moveTo(125, 75);
+      ctx.fillRect(183, 110, 50, 25);
+      // ctx.beginPath();
+      ctx.scale(2, 3);
+
+      ctx.translate((183 + 50) / 2, (110 + 25) / 2);
+      ctx.rotate(Math.PI);
+      ctx.translate(-(183 + 50) / 2, -(110 + 25) / 2);
+
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(183, 110, 50, 25);
+
+      // ctx.scale(2, 3);
+      // ctx.rotate((45 * Math.PI) / 180);
+      // ctx.translate(-20, -70);
+      // ctx.fillStyle = "yellow";
+      // ctx.fillRect(183, 75, 25, 25);
+      // ctx.beginPath();
+      // Non-rotated rectangle
+      ctx.fillStyle = "gray";
+      ctx.fillRect(80, 60, 140, 30);
+
+      // Matrix transformation
+      ctx.translate(150, 75);
+      ctx.rotate(Math.PI / 2);
+      ctx.translate(-150, -75);
+
+      // Rotated rectangle
+      ctx.scale(1, 2);
+      ctx.fillStyle = "red";
+      ctx.fillRect(80, 60, 140, 30);
+
+      // You should generally scale objects first, rotate them next,
+      // and then finally translate last
+      canvas = document.getElementById("canvas3");
+      ctx = canvas.getContext("2d");
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(183, 110, 155, 47);
+      ctx.scale(2, 3);
+      ctx.rotate((183 + 155) / 2, (110 + 57) / 2);
+      ctx.translate(-(183 + 155) / 2, -(110 + 57) / 2);
+      ctx.fillStyle = "green";
+      ctx.fillRect(110, 110, 155, 47);
+
+      canvas = document.getElementById("canvas4");
+      ctx = canvas.getContext("2d");
+      // Non-rotated rectangle
+      ctx.fillStyle = "gray";
+      ctx.fillRect(80, 60, 140, 30);
+
+      // Matrix transformation
+      ctx.translate(150, 75);
+      ctx.rotate(Math.PI / 2);
+      ctx.translate(-150, -75);
+
+      // Rotated rectangle
+      ctx.scale(1, 2);
+      ctx.fillStyle = "red";
+      ctx.fillRect(80, 60, 140, 30);
+    </script>
+  </body>
+</html>

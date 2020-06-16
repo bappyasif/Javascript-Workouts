@@ -1,0 +1,58 @@
+.form label {
+  display: block;
+  font-size: 11px;
+}
+
+.form input {
+  width: 220px;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+form {
+  display: flexbox;
+}
+
+form label {
+  display: block;
+  font-size: 29px;
+  line-height: 40px;
+}
+
+form input {
+  width: 220px;
+  padding-left: 20px;
+  margin-left: 20px;
+  line-height: 24px;
+  float: right;
+}
+
+fieldset {
+  width: fit-content;
+  padding: 20px;
+  margin: 20px;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+header {
+  padding-left: 20px;
+  margin-left: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: larger;
+}
+
+.form-output {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: xx-large;
+  color: teal;
+}
+
+form #next {
+  margin-left: 20px;
+  font-size: xx-large;
+}

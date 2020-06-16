@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="200"
+      height="200"
+      style="color: yellowgreen;"
+    ></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let camvasContext = canvas.getContext("2d");
+      //   canvas.draggable();
+      camvasContext.moveTo(0, 0);
+      camvasContext.lineTo(200, 200);
+      camvasContext.stroke();
+
+      let image = new Image();
+      image.onload = () => {
+        console.log("loading image....");
+        camvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+        // camvasContext.drawImage(image, 110, 110, canvas.width, canvas.height);
+        // to save
+        let savedImage = canvas.toDataURL();
+        // window.open(savedImage);
+      };
+      // use http-server npm package to make it work
+      //   image.src = "https://unsplash.com/photos/VfwwaXyg63Y";
+      image.src = "landscape.jpg";
+    </script>
+  </body>
+</html>

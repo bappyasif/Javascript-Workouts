@@ -1,0 +1,45 @@
+.wrapper {
+  width: 900px;
+  max-width: 100%;
+  margin: auto;
+}
+
+form.multi-form {
+  padding: 20px;
+}
+form.multi-form fieldset:not(.active) {
+  display: none;
+}
+form.multi-form fieldset.active:first-of-type ~ .buttons .prev,
+form.multi-form fieldset.active:first-of-type ~ .buttons .submit {
+  display: none;
+}
+form.multi-form fieldset.active:not(:last-of-type) ~ .buttons .submit {
+  display: none;
+}
+form.multi-form fieldset.active:last-of-type ~ .buttons .next {
+  display: none;
+}
+
+.stages label {
+  background: #ffffff;
+  border: solid 5px #c0c0c0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0;
+  font-weight: 700;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  width: 50px;
+  z-index: 1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

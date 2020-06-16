@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
+    <canvas id="canvas4"></canvas>
+    <canvas id="canvas5"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "BLUE";
+
+      ctx.fillRect(0, 0, 50, 50);
+      ctx.clearRect(0, 0, 25, 25);
+
+      canvas = document.getElementById("canvas2");
+      ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "yellow";
+
+      ctx.fillRect(0, 0, 50, 50);
+      //   ctx.clearRect(0, 0, 25, 25);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //   canvas.width = canvas.width;
+      //   canvas.height = canvas.height;
+
+      canvas = document.getElementById("canvas3");
+      ctx = canvas.getContext("2d");
+
+      ctx.moveTo(11, 11);
+      ctx.lineTo(47, 47);
+      ctx.lineTo(47, 11);
+      ctx.lineTo(11, 11);
+      ctx.stroke();
+
+      //   canvas = document.getElementById("canvas4");
+      canvas = document.getElementById("canvas4");
+      ctx = canvas.getContext("2d");
+      ctx.moveTo(2, 2);
+      ctx.lineTo(74, 74);
+      ctx.lineTo(47, 11);
+      ctx.lineTo(11, 11);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+
+      canvas = document.getElementById("canvas5");
+      ctx = canvas.getContext("2d");
+      ctx.moveTo(74, 74);
+      ctx.lineTo(74, 74);
+      ctx.lineTo(125, 74);
+      ctx.lineTo(51, 51);
+      ctx.fillStyle = "teal";
+      ctx.fill();
+    </script>
+  </body>
+</html>
