@@ -1,0 +1,39 @@
+{
+  "name": "lesson-2",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "eslint": "^7.2.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-plumber": "^1.2.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "autoprefixer": "^9.8.0",
+    "browser-sync": "^2.26.7",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jasmine-browser": "^4.1.0",
+    "gulp-jasmine-phantom": "^3.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-pngquant": "^9.0.0",
+    "jasmine-core": "^3.5.0",
+    "phantom-jasmine": "^0.3.0",
+    "puppeteer": "^4.0.0"
+  }
+}
